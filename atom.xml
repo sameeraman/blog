@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://sameeraman.github.io/"/>
-  <updated>2020-07-07T03:38:15.681Z</updated>
+  <updated>2020-07-10T14:46:10.788Z</updated>
   <id>https://sameeraman.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://sameeraman.github.io/2020/07/07/hello-world/"/>
-    <id>https://sameeraman.github.io/2020/07/07/hello-world/</id>
-    <published>2020-07-07T03:38:15.681Z</published>
-    <updated>2020-07-07T03:38:15.681Z</updated>
+    <link href="https://sameeraman.github.io/2020/07/10/hello-world/"/>
+    <id>https://sameeraman.github.io/2020/07/10/hello-world/</id>
+    <published>2020-07-10T14:46:10.788Z</published>
+    <updated>2020-07-10T14:46:10.788Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -39,27 +39,28 @@
   </entry>
   
   <entry>
-    <title>forth-post</title>
-    <link href="https://sameeraman.github.io/2020/07/05/fourth-post/"/>
-    <id>https://sameeraman.github.io/2020/07/05/fourth-post/</id>
-    <published>2020-07-05T10:34:48.000Z</published>
-    <updated>2020-07-07T03:38:15.681Z</updated>
+    <title>Web App Private Endpoints vs Service Endpoints vs App Service Environments</title>
+    <link href="https://sameeraman.github.io/2020/07/09/internalwebapphostingoptions/"/>
+    <id>https://sameeraman.github.io/2020/07/09/internalwebapphostingoptions/</id>
+    <published>2020-07-09T10:34:48.000Z</published>
+    <updated>2020-07-10T14:46:10.788Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h1><p>This is the forth Post.</p>]]></content>
+    <content type="html"><![CDATA[<p>Recently, I got an opportunity to compare the Private Endpoint for Web Apps, Service Endpoints for Web Apps and App Service Environments. I thought it would be good to write a blog post on the observations and the comparison I learned. Limiting the attack vector for the web applications and exposing the application only to the customer private networks is a very common requirement when you talk to customers. Therefore, this blog is about a comparison between the most commonly used hosting methods for <strong>internal-facing</strong> web applications in Azure. </p><h2 id="Private-Endpoints-for-Web-Apps"><a href="#Private-Endpoints-for-Web-Apps" class="headerlink" title="Private Endpoints for Web Apps"></a>Private Endpoints for Web Apps</h2><p>With the announcement of the <a href="https://docs.microsoft.com/en-us/azure/app-service/networking/private-endpoint" target="_blank" rel="noopener">Private Endpoints for Web Apps</a>, it opens up a new architecture for making Azure Web Apps available to the Azure Networks. This method creates a Private IP address in your virtual network dedicated for the Web App instance you choose. This private IP can be used as a secure entry point for the Web Application. This feature combined with external access blocked to the web app makes the application available only to the local network. </p><p>The traffic originating from an end-user traverse the virtual network to the private endpoint for the web app. Then it goes through the Microsoft Backbone to the Web App. It never goes to the Public Internet. Hence, this is a much secure way to have connectivity to internal-facing web applications. </p><p><img src="/blog/2020/07/09/internalwebapphostingoptions/PrivateEndpoints.png" alt="Private Endpoint for Web Apps"></p><p>The above diagram shows the high-level architecture for the private endpoint for web apps. One of the key features of this architecture is that this model works with the hybrid networking configuration as well. This means, your on-premises users can route to your web application using the private endpoint in the virtual network. This also provides additional security features. Private endpoint makes sure that only the allowed web application instance can be accessed by the private endpoint. It can not access any other service through it. Therefore, it protects you from any possible data exfiltration from your network. </p><p>Note that this feature is still in public preview as of 10/07/2020.</p><h2 id="Service-Endpoints-for-Web-Apps"><a href="#Service-Endpoints-for-Web-Apps" class="headerlink" title="Service Endpoints for Web Apps"></a>Service Endpoints for Web Apps</h2><p><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview" target="_blank" rel="noopener">Service Endpoints</a> for Web Apps provide secure connectivity to Azure Web apps over an optmized route over the Microsoft backbone. When compared with the Private Endpoints, Service Endpoints does not provide a private IP in your network. Instead, it will add special routes to your VNet, so that the Web App traffic will route via the Microsoft backbone to the web app. Therefore, it will not leave the Microsoft network when reaching the web app. You can also combine Service Endpoints and restrict public access to only allow traffic from the virtual networks selected. </p><p><img src="/blog/2020/07/09/internalwebapphostingoptions/ServiceEndpoints.png" alt="Service Endpoint for Web Apps"></p><p>The diagram above shows the high level architecture for the Service Endpoints for web apps. One of the key functional differences in service endpoint, when compared to private endpoints, is that this provides private access to the full service in the Azure Region whereas in Private link it is only to that instance. </p><p>Service endpoints are simple to configure and easier option when compared to the other two.</p><h2 id="App-Service-Environments"><a href="#App-Service-Environments" class="headerlink" title="App Service Environments"></a>App Service Environments</h2><p>Azure <a href="https://docs.microsoft.com/en-us/azure/app-service/environment/intro" target="_blank" rel="noopener">App Service environments</a> provide a fully isolated and dedicated environment in a customer network to run web apps. This provisions a dedicated instance of the app hosting plan in your network as opposed to the multi-tenanted offerings in the other two option. This allows customers to fully control network traffic that goes in and out of the web app. </p><p><img src="/blog/2020/07/09/internalwebapphostingoptions/ASE.png" alt="App Service Environments"></p><p>The above high-level architecture diagram shows how the App service environment sits in the network. Providing internal access to the application is easy since it sits within the virtual network. If you have hybrid connectivity via an ExpressRoute or a Site-to-Site VPN, then it can route to the web application without any special configuration. </p><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post, we looked at different architecture options for hosting a Web App which is exposed to the internal network only. See the below table, as a summary of features, functionalities and complexities discussed above. </p><table><thead><tr><th>Private Endpoints</th><th>Service Endpoints</th><th>App Service Environments</th></tr></thead><tbody><tr><td>Provide Access to Web Apps over Private IP Address</td><td>Provide Access to Web Apps over optimized backbone routing</td><td>Web Apps are provisioned within the customer network</td></tr><tr><td>Access is restricted per Web App Instance</td><td>Access is restricted per Web app Service</td><td>Access restriction up to the customer as the service is in the customer network</td></tr><tr><td>Complexity: Planning and initial configuration required</td><td>Complexity: Easy to setup</td><td>Complexity: Planning and Initial configuration required</td></tr><tr><td>In-built data exfiltration protection</td><td>Traffic will need to be passed through an NVA/Firewall for exfiltration protection</td><td>N/A as the application is entirely in the customer network</td></tr><tr><td>Cost compared to the other two options: moderate</td><td>Cost compared to the other two options: Can be low and depends on the application</td><td>Cost compared to the other two options: Higher running cost</td></tr><tr><td>Multi-tenant Hosting plan</td><td>Multi-tenant Hosting plan</td><td>Dedicated hosting plan</td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;introduction&quot;&gt;&lt;a href=&quot;#introduction&quot; class=&quot;headerlink&quot; title=&quot;introduction&quot;&gt;&lt;/a&gt;introduction&lt;/h1&gt;&lt;p&gt;This is the forth Post.&lt;/p&gt;
-
+        &lt;p&gt;Recently, I got an opportunity to compare the Private Endpoint for Web Apps, Service Endpoints for Web Apps and App Service Environments.
       
     
     </summary>
     
     
     
-      <category term="hello" scheme="https://sameeraman.github.io/tags/hello/"/>
+      <category term="Apps" scheme="https://sameeraman.github.io/tags/apps/"/>
+    
+      <category term="Networking" scheme="https://sameeraman.github.io/tags/networking/"/>
     
   </entry>
   
@@ -68,7 +69,7 @@
     <link href="https://sameeraman.github.io/2020/07/05/third-port/"/>
     <id>https://sameeraman.github.io/2020/07/05/third-port/</id>
     <published>2020-07-05T10:34:48.000Z</published>
-    <updated>2020-07-07T03:38:15.681Z</updated>
+    <updated>2020-07-10T14:46:10.788Z</updated>
     
     <summary type="html">
     
@@ -78,9 +79,9 @@
       <category term="Test" scheme="https://sameeraman.github.io/categories/test/"/>
     
     
-      <category term="hello" scheme="https://sameeraman.github.io/tags/hello/"/>
-    
       <category term="intro" scheme="https://sameeraman.github.io/tags/intro/"/>
+    
+      <category term="hello" scheme="https://sameeraman.github.io/tags/hello/"/>
     
   </entry>
   
@@ -89,7 +90,7 @@
     <link href="https://sameeraman.github.io/2020/07/04/second-post/"/>
     <id>https://sameeraman.github.io/2020/07/04/second-post/</id>
     <published>2020-07-04T09:34:48.000Z</published>
-    <updated>2020-07-07T03:38:15.681Z</updated>
+    <updated>2020-07-10T14:46:10.788Z</updated>
     
     <summary type="html">
     
@@ -101,9 +102,9 @@
       <category term="hello" scheme="https://sameeraman.github.io/categories/test/hello/"/>
     
     
-      <category term="hello" scheme="https://sameeraman.github.io/tags/hello/"/>
-    
       <category term="intro" scheme="https://sameeraman.github.io/tags/intro/"/>
+    
+      <category term="hello" scheme="https://sameeraman.github.io/tags/hello/"/>
     
   </entry>
   
