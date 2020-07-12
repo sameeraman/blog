@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sameeraman.github.io/blog/2020/07/10/hello-world/</loc>
-    <lastmod>2020-07-10</lastmod>
+    <loc>https://sameeraman.github.io/blog/2020/07/04/dockercheatsheet/</loc>
+    <lastmod>2020-07-12</lastmod>
+  </url>  <url>
+    <loc>https://sameeraman.github.io/blog/2020/07/12/hello-world/</loc>
+    <lastmod>2020-07-12</lastmod>
   </url>  <url>
     <loc>https://sameeraman.github.io/blog/2020/07/09/internalwebapphostingoptions/</loc>
-    <lastmod>2020-07-10</lastmod>
-  </url>  <url>
-    <loc>https://sameeraman.github.io/blog/2020/07/04/second-post/</loc>
-    <lastmod>2020-07-10</lastmod>
-  </url>  <url>
-    <loc>https://sameeraman.github.io/blog/2020/07/05/third-port/</loc>
-    <lastmod>2020-07-10</lastmod>
+    <lastmod>2020-07-12</lastmod>
   </url>
 </urlset>

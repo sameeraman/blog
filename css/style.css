@@ -5527,7 +5527,7 @@ pre .js .function {
 
 pre,
 .highlight {
-  background: #fafafa;
+  background: #f6f6f6;
   margin: 10px 0;
   padding: 15px 10px;
   overflow: auto;
@@ -5559,14 +5559,15 @@ pre code {
 
 .highlight {
   position: relative;
-  padding: 32px 10px 0 10px;
-  border-radius: 4px;
+  padding: 0px 10px 0 10px;
+  border-radius: 10px;
 }
 
 .highlight:before {
   display: block;
   content: ' ';
-  height: 32px;
+  /* height: 32px; */
+  height: 0px;
   position: absolute;
   top: 0;
   left: 0;
@@ -5581,14 +5582,14 @@ pre code {
   content: " ";
   position: absolute;
   border-radius: 50%;
-  background: #fc625d;
+  /* background: #fc625d; */
   width: 10px;
   height: 10px;
   top: 0;
   left: 15px;
   margin-top: 11px;
-  -webkit-box-shadow: 20px 0 #fdbc40,40px 0 #35cd4b;
-  box-shadow: 20px 0 #fdbc40,40px 0 #35cd4b;
+  /* -webkit-box-shadow: 20px 0 #fdbc40,40px 0 #35cd4b;
+  box-shadow: 20px 0 #fdbc40,40px 0 #35cd4b; */
 }
 
 .highlight pre {
