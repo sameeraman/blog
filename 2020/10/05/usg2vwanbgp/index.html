@@ -17,20 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Hello World | Crazy Cloud Ideas</title>
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <title>Connect Ubiquiti USG to Azure VWAN Gateway using BGP | Crazy Cloud Ideas</title>
+  <meta name="description" content="In this blog post, I’m going to be sharing my knowledge that I gathered during a lab setup. Last weekend, I was playing with Ubiquiti USG BGP features and was wondering If I could establish BGP peerin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://sameeraman.github.io/2020/07/12/hello-world/index.html">
+<meta property="og:title" content="Connect Ubiquiti USG to Azure VWAN Gateway using BGP">
+<meta property="og:url" content="https://sameeraman.github.io/2020/10/05/usg2vwanbgp/index.html">
 <meta property="og:site_name" content="Crazy Cloud Ideas">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="In this blog post, I’m going to be sharing my knowledge that I gathered during a lab setup. Last weekend, I was playing with Ubiquiti USG BGP features and was wondering If I could establish BGP peerin">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-12T14:47:31.389Z">
-<meta property="article:modified_time" content="2020-07-12T14:47:31.389Z">
+<meta property="article:published_time" content="2020-10-05T09:34:48.000Z">
+<meta property="article:modified_time" content="2020-10-05T15:32:18.645Z">
 <meta property="article:author" content="Sameera Perera">
+<meta property="article:tag" content="Networking">
+<meta property="article:tag" content="VWAN">
+<meta property="article:tag" content="Ubiquiti">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://sameeraman.github.io/2020/07/12/hello-world/index.html">
+  <link rel="canonical" href="https://sameeraman.github.io/2020/10/05/usg2vwanbgp/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Crazy Cloud Ideas" type="application/atom+xml">
   
@@ -188,7 +191,7 @@
   <div class="widget">
     <h3 class="widget-title">Archive</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -198,7 +201,7 @@
   <div class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/containers/">Containers</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/containers/">Containers</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/networking/">Networking</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -208,7 +211,7 @@
   <div class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apps/" rel="tag">Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/containers/" rel="tag">Containers</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/networking/" rel="tag">Networking</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apps/" rel="tag">Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/containers/" rel="tag">Containers</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/networking/" rel="tag">Networking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ubiquiti/" rel="tag">Ubiquiti</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vwan/" rel="tag">VWAN</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -218,7 +221,7 @@
   <div class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-body tagcloud">
-      <a href="/blog/tags/apps/" style="font-size: 13px;">Apps</a> <a href="/blog/tags/containers/" style="font-size: 13px;">Containers</a> <a href="/blog/tags/docker/" style="font-size: 13px;">Docker</a> <a href="/blog/tags/networking/" style="font-size: 13px;">Networking</a>
+      <a href="/blog/tags/apps/" style="font-size: 13px;">Apps</a> <a href="/blog/tags/containers/" style="font-size: 13px;">Containers</a> <a href="/blog/tags/docker/" style="font-size: 13px;">Docker</a> <a href="/blog/tags/networking/" style="font-size: 14px;">Networking</a> <a href="/blog/tags/ubiquiti/" style="font-size: 13px;">Ubiquiti</a> <a href="/blog/tags/vwan/" style="font-size: 13px;">VWAN</a>
     </div>
   </div>
 
@@ -236,10 +239,25 @@
                 
               </p>
               <p class="item-title">
-                <a href="/blog/2020/07/12/hello-world/" class="title">Hello World</a>
+                <a href="/blog/2020/10/05/hello-world/" class="title">Hello World</a>
               </p>
               <p class="item-date">
-                <time datetime="2020-07-12T14:47:31.389Z" itemprop="datePublished">2020-07-12</time>
+                <time datetime="2020-10-05T15:32:18.645Z" itemprop="datePublished">2020-10-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/networking/">Networking</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/10/05/usg2vwanbgp/" class="title">Connect Ubiquiti USG to Azure VWAN Gateway using BGP</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-05T09:34:48.000Z" itemprop="datePublished">2020-10-05</time>
               </p>
             </div>
           </li>
@@ -287,14 +305,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-hello-world" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-usg2vwanbgp" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Connect Ubiquiti USG to Azure VWAN Gateway using BGP
     </h1>
   
 
@@ -302,41 +320,62 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/blog/2020/07/12/hello-world/" class="article-date">
-	  <time datetime="2020-07-12T14:47:31.389Z" itemprop="datePublished">2020-07-12</time>
+	<a href="/blog/2020/10/05/usg2vwanbgp/" class="article-date">
+	  <time datetime="2020-10-05T09:34:48.000Z" itemprop="datePublished">2020-10-05</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/blog/categories/networking/">Networking</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/blog/tags/networking/" rel="tag">Networking</a>, <a class="article-tag-link" href="/blog/tags/ubiquiti/" rel="tag">Ubiquiti</a>, <a class="article-tag-link" href="/blog/tags/vwan/" rel="tag">VWAN</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/07/12/hello-world/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/10/05/usg2vwanbgp/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 73(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 649(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 1(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4(minutes)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>In this blog post, I’m going to be sharing my knowledge that I gathered during a lab setup. Last weekend, I was playing with Ubiquiti USG BGP features and was wondering If I could establish BGP peering with my Azure VPN Gateway. This way, it could dynamically exchange routes between my home network and Azure. I typically have a hybrid networking configured between my home network and Azure. My Azure network is very dynamic, I create new VNETs and delete VNETs very often. Managing static routes in my home router and IP Sec tunnels in each setup has been very cumbersome. Therefore, my curious mind was always looking for a smarter way to do this. If you are in this same boat, join with me.<br>In summary, BGP peering’s can be established between the Ubiquity USG and the Azure Gateway enabled with BGP. In this blog post, I’m focusing more on the USG configuration and assume that you can setup the rest of the environment by yourself. To explain how this can be setup, I’m going to use my lab as an example. Following is a diagram of my setup. </p>
+<p>![Lab Setup Diagram](/blog /usg2vwanbgp/diagram.png)</p>
+<p>Following are the key properties of the setup that you need to be aware. </p>
+<p><strong>Home Network</strong><br>IP Addressing used in the Home network – 10.1.1.0/24<br>Static Public IP on the USG – 113.76.252.224<br>BGP Peering IP on the USG – 10.1.1.1</p>
+<p><strong>Azure Network – VWAN</strong><br>VPN Gateway Public IP – 21.52.125.78<br>Azure Gateway Peering IP – 10.0.1.14<br>VWAN Hub IP Address space – 10.0.1.0/24<br>VNET IP Address Space – 10.10.0.0/16</p>
+<p>Note that in Azure I have used Azure VWAN for hub and spoke topology. To learn more about Azure VWAN <a href="https://azure.microsoft.com/en-us/services/virtual-wan/" target="_blank" rel="noopener">click here</a>. Azure VWAN Hub can have VPN Gateways. I assume that you have setup the Azure Networking piece beforehand, and I’m not going to be covering that piece in this article. By default, it creates two VPN gateway instances. See below screenshot which displays the properties of the two gateways. </p>
+<p>![VWAN Gateway instances](/blog /usg2vwanbgp/gatewayproperties.png)</p>
+<p>In this case I have used only one gateway instance as my home network has only one gateway. </p>
+<p>Now you have all the details required for the VPN to setup. Let’s look at how to configure the USG. Unfortunately, USG configuration can’t be done via the GUI. You will need to use the advance configuration file config.gateway.json. For more details about the advanced configuration file visit this <a href="https://help.ui.com/hc/en-us/articles/215458888-UniFi-USG-Advanced-Configuration-Using-config-gateway-json#:~:text=Introduction-,The%20config.,available%20in%20the%20web%20GUI." target="_blank" rel="noopener">documentation</a>.<br>This file is in the cloud key and the location is explained in the documentation. In my case it is - /srv/unifi/data/sites/<sitename>. If you are editing this for the first time, you will need to create the file. This needs to be a valid JSON file, therefore, be careful and always validate when editing this file.<br>Add the following configuration to the file. Replace you public and local IP in here with your respective IPs. Save the configuration and do a force provision from the Cloud Key. </p>
+<p>![Provision Button](/blog /usg2vwanbgp/provision.png)</p>
+<p>Once the configuration is pushed. Restart the USG. </p>
+<p>Once it’s successfully restarted, ssh into the USG. Then check the BGP status using the following commands. It should show the results as below. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp summary</span><br></pre></td></tr></table></figure>
+<p>![Provision Button](/blog /usg2vwanbgp/command1.png)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp neighbor</span><br></pre></td></tr></table></figure>
+<p>![Provision Button](/blog /usg2vwanbgp/command2.png)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp neighbors 10.0.1.14 advertised-routes</span><br></pre></td></tr></table></figure>
+<p>This command shows the routes advertised to the remote peer<br>![Provision Button](/blog /usg2vwanbgp/command3.png)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp neighbors 10.0.1.14 received-routes</span><br></pre></td></tr></table></figure>
+<p>This command shows the routes recieved from the remote peer<br>![Provision Button](/blog /usg2vwanbgp/command4.png)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp</span><br></pre></td></tr></table></figure>
+<p>![Provision Button](/blog /usg2vwanbgp/command5.png)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip route</span><br></pre></td></tr></table></figure>
+<p>![Provision Button](/blog /usg2vwanbgp/command6.png)</p>
 
       
     </div>
@@ -346,7 +385,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://sameeraman.github.io/2020/07/12/hello-world/" title="Hello World" target="_blank" rel="external">https://sameeraman.github.io/2020/07/12/hello-world/</a>
+      <a href="https://sameeraman.github.io/2020/10/05/usg2vwanbgp/" title="Connect Ubiquiti USG to Azure VWAN Gateway using BGP" target="_blank" rel="external">https://sameeraman.github.io/2020/10/05/usg2vwanbgp/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -391,6 +430,10 @@
   <div class="bar-inner">
   
   <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2020/10/05/hello-world/" title="Hello World"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
     
     
     <li class="next">
