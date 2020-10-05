@@ -26,7 +26,7 @@
 <meta property="og:description" content="In this blog post, I’m going to be sharing my knowledge that I gathered during a lab setup. Last weekend, I was playing with Ubiquiti USG BGP features and was wondering If I could establish BGP peerin">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-05T09:34:48.000Z">
-<meta property="article:modified_time" content="2020-10-05T15:37:38.759Z">
+<meta property="article:modified_time" content="2020-10-05T15:51:44.223Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="Networking">
 <meta property="article:tag" content="VWAN">
@@ -242,7 +242,7 @@
                 <a href="/blog/2020/10/05/hello-world/" class="title">Hello World</a>
               </p>
               <p class="item-date">
-                <time datetime="2020-10-05T15:37:38.755Z" itemprop="datePublished">2020-10-05</time>
+                <time datetime="2020-10-05T15:51:44.223Z" itemprop="datePublished">2020-10-05</time>
               </p>
             </div>
           </li>
@@ -352,7 +352,11 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>In this blog post, I’m going to be sharing my knowledge that I gathered during a lab setup. Last weekend, I was playing with Ubiquiti USG BGP features and was wondering If I could establish BGP peering with my Azure VPN Gateway. This way, it could dynamically exchange routes between my home network and Azure. I typically have a hybrid networking configured between my home network and Azure. My Azure network is very dynamic, I create new VNETs and delete VNETs very often. Managing static routes in my home router and IP Sec tunnels in each setup has been very cumbersome. Therefore, my curious mind was always looking for a smarter way to do this. If you are in this same boat, join with me.<br>In summary, BGP peering’s can be established between the Ubiquity USG and the Azure Gateway enabled with BGP. In this blog post, I’m focusing more on the USG configuration and assume that you can setup the rest of the environment by yourself. To explain how this can be setup, I’m going to use my lab as an example. Following is a diagram of my setup. </p>
+        <p>In this blog post, I’m going to be sharing my knowledge that I gathered during a lab setup. Last weekend, I was playing with Ubiquiti USG BGP features and was wondering If I could establish BGP peering with my Azure VPN Gateway. This way, it could dynamically exchange routes between my home network and Azure. I typically have a hybrid networking configured between my home network and Azure. My Azure network is very dynamic, I create new VNETs and delete VNETs very often. Managing static routes in my home router and IP Sec tunnels in each setup has been very cumbersome. Therefore, my curious mind was always looking for a smarter way to do this. If you are in this same boat, join with me. </p>
+<a id="more"></a>
+
+
+<p>In summary, BGP peering’s can be established between the Ubiquity USG and the Azure Gateway enabled with BGP. In this blog post, I’m focusing more on the USG configuration and assume that you can setup the rest of the environment by yourself. To explain how this can be setup, I’m going to use my lab as an example. Following is a diagram of my setup. </p>
 <p>![Lab Setup Diagram](/blog /usg2vwanbgp/diagram.png)</p>
 <p>Following are the key properties of the setup that you need to be aware. </p>
 <p><strong>Home Network</strong><br>IP Addressing used in the Home network – 10.1.1.0/24<br>Static Public IP on the USG – 113.76.252.224<br>BGP Peering IP on the USG – 10.1.1.1</p>
