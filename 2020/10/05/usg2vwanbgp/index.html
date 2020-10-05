@@ -26,7 +26,7 @@
 <meta property="og:description" content="In this blog post, I’m going to be sharing my knowledge that I gathered during a lab setup. Last weekend, I was playing with Ubiquiti USG BGP features and was wondering If I could establish BGP peerin">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-05T09:34:48.000Z">
-<meta property="article:modified_time" content="2020-10-05T15:32:18.645Z">
+<meta property="article:modified_time" content="2020-10-05T15:37:38.759Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="Networking">
 <meta property="article:tag" content="VWAN">
@@ -242,7 +242,7 @@
                 <a href="/blog/2020/10/05/hello-world/" class="title">Hello World</a>
               </p>
               <p class="item-date">
-                <time datetime="2020-10-05T15:32:18.645Z" itemprop="datePublished">2020-10-05</time>
+                <time datetime="2020-10-05T15:37:38.755Z" itemprop="datePublished">2020-10-05</time>
               </p>
             </div>
           </li>
@@ -342,7 +342,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/10/05/usg2vwanbgp/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 649(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 643(words)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4(minutes)</span>
@@ -365,17 +365,17 @@
 <p>Once the configuration is pushed. Restart the USG. </p>
 <p>Once it’s successfully restarted, ssh into the USG. Then check the BGP status using the following commands. It should show the results as below. </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp summary</span><br></pre></td></tr></table></figure>
-<p>![Provision Button](/blog /usg2vwanbgp/command1.png)</p>
+<p>![Command1](/blog /usg2vwanbgp/command1.png)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp neighbor</span><br></pre></td></tr></table></figure>
-<p>![Provision Button](/blog /usg2vwanbgp/command2.png)</p>
+<p>![Command2](/blog /usg2vwanbgp/command2.png)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp neighbors 10.0.1.14 advertised-routes</span><br></pre></td></tr></table></figure>
-<p>This command shows the routes advertised to the remote peer<br>![Provision Button](/blog /usg2vwanbgp/command3.png)</p>
+<p>This command shows the routes advertised to the remote peer<br>![Command3](/blog /usg2vwanbgp/command3.png)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp neighbors 10.0.1.14 received-routes</span><br></pre></td></tr></table></figure>
-<p>This command shows the routes recieved from the remote peer<br>![Provision Button](/blog /usg2vwanbgp/command4.png)</p>
+<p>This command shows the routes recieved from the remote peer<br>![Command4](/blog /usg2vwanbgp/command4.png)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip bgp</span><br></pre></td></tr></table></figure>
-<p>![Provision Button](/blog /usg2vwanbgp/command5.png)</p>
+<p>![Command5](/blog /usg2vwanbgp/command5.png)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show ip route</span><br></pre></td></tr></table></figure>
-<p>![Provision Button](/blog /usg2vwanbgp/command6.png)</p>
+<p>![Command6](/blog /usg2vwanbgp/command6.png)</p>
 
       
     </div>
