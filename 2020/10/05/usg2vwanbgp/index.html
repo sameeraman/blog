@@ -25,13 +25,15 @@
 <meta property="og:site_name" content="Crazy Cloud Ideas">
 <meta property="og:description" content="In this blog post, I’m going to be sharing my knowledge that I gathered during a lab setup. Last weekend, I was playing with Ubiquiti USG BGP features and was wondering If I could establish BGP peerin">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sameeraman.github.io/usg2vwanbgp/diagram.png">
 <meta property="article:published_time" content="2020-10-05T09:34:48.000Z">
-<meta property="article:modified_time" content="2020-10-05T16:12:06.635Z">
+<meta property="article:modified_time" content="2020-10-06T03:01:46.122Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="Networking">
 <meta property="article:tag" content="VWAN">
 <meta property="article:tag" content="Ubiquiti">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sameeraman.github.io/usg2vwanbgp/diagram.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://sameeraman.github.io/2020/10/05/usg2vwanbgp/index.html">
   
@@ -239,10 +241,10 @@
                 
               </p>
               <p class="item-title">
-                <a href="/blog/2020/10/05/hello-world/" class="title">Hello World</a>
+                <a href="/blog/2020/10/06/hello-world/" class="title">Hello World</a>
               </p>
               <p class="item-date">
-                <time datetime="2020-10-05T16:12:06.635Z" itemprop="datePublished">2020-10-05</time>
+                <time datetime="2020-10-06T03:01:46.122Z" itemprop="datePublished">2020-10-06</time>
               </p>
             </div>
           </li>
@@ -342,10 +344,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/10/05/usg2vwanbgp/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 643(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 636(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 3(minutes)</span>
 	
 
       </div>
@@ -357,7 +359,7 @@
 
 
 <p>In summary, BGP peering’s can be established between the Ubiquity USG and the Azure Gateway enabled with BGP. In this blog post, I’m focusing more on the USG configuration and assume that you can setup the rest of the environment by yourself. To explain how this can be setup, I’m going to use my lab as an example. Following is a diagram of my setup. </p>
-<p>![Lab Setup Diagram](/blog /usg2vwanbgp/diagram.png)</p>
+<p><img src="/usg2vwanbgp/diagram.png" alt="Lab Setup Diagram" title="Lab Setup Diagram"></p>
 <p>Following are the key properties of the setup that you need to be aware. </p>
 <p><strong>Home Network</strong><br>IP Addressing used in the Home network – 10.1.1.0/24<br>Static Public IP on the USG – 113.76.252.224<br>BGP Peering IP on the USG – 10.1.1.1</p>
 <p><strong>Azure Network – VWAN</strong><br>VPN Gateway Public IP – 21.52.125.78<br>Azure Gateway Peering IP – 10.0.1.14<br>VWAN Hub IP Address space – 10.0.1.0/24<br>VNET IP Address Space – 10.10.0.0/16</p>
@@ -436,7 +438,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/blog/2020/10/05/hello-world/" title="Hello World"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/blog/2020/10/06/hello-world/" title="Hello World"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
