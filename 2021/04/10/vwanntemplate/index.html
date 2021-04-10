@@ -17,16 +17,26 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Crazy Cloud Ideas</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Crazy Cloud Ideas">
-<meta property="og:url" content="https://sameeraman.github.io/index.html">
+  <title>Azure Virtual WAN N region Bicep Template | Crazy Cloud Ideas</title>
+  <meta name="description" content="This blog post is about a Bicep Template that I authored to create a lab environment for customer scenarios and use cases. It creates a VWAN with N number of VWAN hubs in N regions. It also creates sp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Azure Virtual WAN N region Bicep Template">
+<meta property="og:url" content="https://sameeraman.github.io/2021/04/10/vwanntemplate/index.html">
 <meta property="og:site_name" content="Crazy Cloud Ideas">
+<meta property="og:description" content="This blog post is about a Bicep Template that I authored to create a lab environment for customer scenarios and use cases. It creates a VWAN with N number of VWAN hubs in N regions. It also creates sp">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sameeraman.github.io/2021/04/10/vwanntemplate/vWAN2R_B.png">
+<meta property="og:image" content="https://sameeraman.github.io/2021/04/10/vwanntemplate/vWAN3R_B.png">
+<meta property="article:published_time" content="2021-04-10T09:34:48.000Z">
+<meta property="article:modified_time" content="2021-04-10T15:07:08.560Z">
 <meta property="article:author" content="Sameera Perera">
+<meta property="article:tag" content="Networking">
+<meta property="article:tag" content="VWAN">
+<meta property="article:tag" content="Bicep">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sameeraman.github.io/2021/04/10/vwanntemplate/vWAN2R_B.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://sameeraman.github.io/index.html">
+  <link rel="canonical" href="https://sameeraman.github.io/2021/04/10/vwanntemplate/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Crazy Cloud Ideas" type="application/atom+xml">
   
@@ -310,47 +320,45 @@
 </aside>
 
   
-  <main class="main" role="main">
   
-  <div class="content article-list">
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-vwanntemplate" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+    <div class="article-header">
+      
+        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2021/04/10/vwanntemplate/">Azure Virtual WAN N region Bicep Template</a>
+    <h1 class="article-title" itemprop="name">
+      Azure Virtual WAN N region Bicep Template
     </h1>
   
 
-  </div>
-  
-  <div class="article-entry text-muted" itemprop="description">
-    <p>This blog post is about a Bicep Template that I authored to create a lab environment for customer scenarios and use cases. It creates a VWAN with N number of VWAN hubs in N regions. It also creates spoke VNet in each region including a VM. The template can be found in the following location with further details on how to use it.</p>
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
+      
+      <div class="article-meta">
+        <span class="article-date">
     <i class="icon icon-calendar-check"></i>
 	<a href="/blog/2021/04/10/vwanntemplate/" class="article-date">
-	  <time datetime="2021-04-10T09:34:48.000Z" itemprop="datePublished">Apr 10</time>
+	  <time datetime="2021-04-10T09:34:48.000Z" itemprop="datePublished">2021-04-10</time>
 	</a>
 </span>
-    
+        
   <span class="article-category">
     <i class="icon icon-folder"></i>
     <a class="article-category-link" href="/blog/categories/networking/">Networking</a>
   </span>
 
-    
+        
   <span class="article-tag">
     <i class="icon icon-tags"></i>
 	<a class="article-tag-link" href="/blog/tags/bicep/" rel="tag">Bicep</a>, <a class="article-tag-link" href="/blog/tags/networking/" rel="tag">Networking</a>, <a class="article-tag-link" href="/blog/tags/vwan/" rel="tag">VWAN</a>
   </span>
 
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2021/04/10/vwanntemplate/#comments" class="article-comment-link">Comments</a></span>
-    
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2021/04/10/vwanntemplate/#comments" class="article-comment-link">Comments</a></span>
+        
 	
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 139(words)</span>
 	
@@ -358,248 +366,94 @@
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 1(minutes)</span>
 	
 
-  </p>
-</article>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>This blog post is about a Bicep Template that I authored to create a lab environment for customer scenarios and use cases. It creates a VWAN with N number of VWAN hubs in N regions. It also creates spoke VNet in each region including a VM. The template can be found in the following location with further details on how to use it.</p>
+<a id="more"></a>
 
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/11/04/globalreach/">Azure Global Reach in Action</a>
-    </h1>
-  
+<p><a href="https://github.com/sameeraman/n_vwan_bicep_template" target="_blank" rel="noopener">https://github.com/sameeraman/n_vwan_bicep_template</a></p>
+<p>Some of the example implementations that you can do using the template are below. </p>
+<h2 id="Azure-VWAN-2-Region-Setup"><a href="#Azure-VWAN-2-Region-Setup" class="headerlink" title="Azure VWAN 2 Region Setup"></a>Azure VWAN 2 Region Setup</h2><p>You can provision an Azure VWAN 2 region model including 2 VWAN Hubs, a VNET and VM in each region. The final solution after deployment will look like below. </p>
+<p><img src="vWAN2R_B.png" alt="VWAN 2 Region"></p>
+<h2 id="Azure-VWAN-3-Region-Setup"><a href="#Azure-VWAN-3-Region-Setup" class="headerlink" title="Azure VWAN 3 Region Setup"></a>Azure VWAN 3 Region Setup</h2><p>You can also provision a setup with 3 VWAN hubs like above. The final solution after deployment will like below.</p>
+<p><img src="vWAN3R_B.png" alt="VWAN 3 Region"></p>
 
+      
+    </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://sameeraman.github.io/2021/04/10/vwanntemplate/" title="Azure Virtual WAN N region Bicep Template" target="_blank" rel="external">https://sameeraman.github.io/2021/04/10/vwanntemplate/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/sameeraman" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/sameeraman" target="_blank"><span class="text-dark">Sameera Perera</span><small class="ml-1x">Cloud Solution Architect</small></a></h3>
+        <div>Think out Cloud</div>
+      </div>
+    </figure>
   </div>
+</div>
+
+
+    </div>
+  </article>
   
-  <div class="article-entry text-muted" itemprop="description">
-    <p>Recently, I was lucky to get two ExpressRoutes in a Microsoft Lab environment so that I could test the Azure Global Reach in Action. ExpressRoutes are not something you can test typically like the other resources in Azure, because it requires, customer router configuration, last mile provider configuration. Therefore, I thought I would share my experience with the rest of the world. This blog post is around the experience, a bit of a glimpse, to what happens when you enable Azure Global Reach. </p>
-  </div>
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/blog/2020/11/04/globalreach/" class="article-date">
-	  <time datetime="2020-11-04T11:24:44.000Z" itemprop="datePublished">Nov 4</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/blog/categories/networking/">Networking</a>
-  </span>
+</div>
 
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/blog/tags/expressroute/" rel="tag">ExpressRoute</a>, <a class="article-tag-link" href="/blog/tags/globalreach/" rel="tag">GlobalReach</a>, <a class="article-tag-link" href="/blog/tags/networking/" rel="tag">Networking</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/11/04/globalreach/#comments" class="article-comment-link">Comments</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 587(words)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 3(minutes)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/10/18/underthehood/">Under the Hood of this Blog</a>
-    </h1>
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/blog/2020/11/04/globalreach/" title="Azure Global Reach in Action"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
-
-  </div>
   
-  <div class="article-entry text-muted" itemprop="description">
-    <p>I recently decided to shift my gears with static pages for my blog. I have been using wordpress for all my blog publication so far. You can find my old blog <a href="https://sameeraman.wordpress.com/" target="_blank" rel="noopener">here</a>. With the trend of static pages, I thought of re-inventing the backend of my blog. And here we are, you are reading my new blog based on static pages which is hosted on Github pages. In this blog post, I am going to show you what happens under the hood when I publish a new article.</p>
-  </div>
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/blog/2020/10/18/underthehood/" class="article-date">
-	  <time datetime="2020-10-18T09:34:48.000Z" itemprop="datePublished">Oct 18</time>
-	</a>
-</span>
+  <div class="bar-right">
     
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/blog/categories/devops/">DevOps</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/blog/tags/devops/" rel="tag">DevOps</a>, <a class="article-tag-link" href="/blog/tags/github/" rel="tag">Github</a>, <a class="article-tag-link" href="/blog/tags/github-actions/" rel="tag">Github Actions</a>, <a class="article-tag-link" href="/blog/tags/hexo/" rel="tag">Hexo</a>, <a class="article-tag-link" href="/blog/tags/static-pages/" rel="tag">Static Pages</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/10/18/underthehood/#comments" class="article-comment-link">Comments</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 556(words)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 3(minutes)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/10/05/usg2vwanbgp/">Connect Ubiquiti USG to Azure VWAN Gateway using BGP</a>
-    </h1>
-  
-
-  </div>
-  
-  <div class="article-entry text-muted" itemprop="description">
-    <p>In this blog post, I’m going to be sharing my knowledge that I gathered during a lab setup. Last weekend, I was playing with Ubiquiti USG BGP features and was wondering If I could establish BGP peering with my Azure VPN Gateway. This way, it could dynamically exchange routes between my home network and Azure. I typically have a hybrid networking configured between my home network and Azure. My Azure network is very dynamic, I create new VNETs and delete VNETs very often. Managing static routes in my home router and IP Sec tunnels in each setup has been very cumbersome. Therefore, my curious mind was always looking for a smarter way to do this. If you are in this same boat, join with me. </p>
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/blog/2020/10/05/usg2vwanbgp/" class="article-date">
-	  <time datetime="2020-10-05T09:34:48.000Z" itemprop="datePublished">Oct 5</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/blog/categories/networking/">Networking</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/blog/tags/networking/" rel="tag">Networking</a>, <a class="article-tag-link" href="/blog/tags/ubiquiti/" rel="tag">Ubiquiti</a>, <a class="article-tag-link" href="/blog/tags/vwan/" rel="tag">VWAN</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/10/05/usg2vwanbgp/#comments" class="article-comment-link">Comments</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.3k(words)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 8(minutes)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/07/09/internalwebapphostingoptions/">Web App Private Endpoints vs Service Endpoints vs App Service Environments</a>
-    </h1>
-  
-
-  </div>
-  
-  <div class="article-entry text-muted" itemprop="description">
-    <p>Recently, I got an opportunity to compare the Private Endpoint for Web Apps, Service Endpoints for Web Apps and App Service Environments. I thought it would be good to write a blog post on the observations and the comparison I learned. Limiting the attack vector for the web applications and exposing the application only to the customer private networks is a very common requirement when you talk to customers. Therefore, this blog is about a comparison between the most commonly used hosting methods for <strong>internal-facing</strong> web applications in Azure. </p>
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/blog/2020/07/09/internalwebapphostingoptions/" class="article-date">
-	  <time datetime="2020-07-09T10:34:48.000Z" itemprop="datePublished">Jul 9</time>
-	</a>
-</span>
-    
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/blog/tags/apps/" rel="tag">Apps</a>, <a class="article-tag-link" href="/blog/tags/networking/" rel="tag">Networking</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/07/09/internalwebapphostingoptions/#comments" class="article-comment-link">Comments</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 812(words)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 5(minutes)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/07/04/dockercheatsheet/">Docker Cheat Sheet</a>
-    </h1>
-  
-
-  </div>
-  
-  <div class="article-entry text-muted" itemprop="description">
-    <p>I recently went through my second study phase around docker containers recently. Docker is a huge topic these days and widly used in the application containerization. I use Docker at home and at work in many projects. I thought it would be useful to create a Docker Cheat Sheet for my reference and share that among the community and that lead to this post. In this post, I’m going to list the most common commands used when playing with Docker containers. </p>
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/blog/2020/07/04/dockercheatsheet/" class="article-date">
-	  <time datetime="2020-07-04T09:34:48.000Z" itemprop="datePublished">Jul 4</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/blog/categories/containers/">Containers</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/blog/tags/containers/" rel="tag">Containers</a>, <a class="article-tag-link" href="/blog/tags/docker/" rel="tag">Docker</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/07/04/dockercheatsheet/#comments" class="article-comment-link">Comments</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 347(words)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 2(minutes)</span>
-	
-
-  </p>
-</article>
-
+    <div class="share-component" data-sites="linkedin,twitter,facebook" data-mobile-sites="linkedin,twitter,facebook"></div>
     
   </div>
+  </div>
+</nav>
+  
 
-   
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -664,6 +518,27 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
    
 
 
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '5731622ffcaccc33f244',
+    clientSecret: 'e9c1555d0547349b52e41b07283ae274ba517d8c',
+    repo: 'blog',
+    owner: 'sameeraman',
+    admin: ['sameeraman'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
 
 
 
