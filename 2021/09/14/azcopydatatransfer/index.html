@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/transfer_speed_1.png">
 <meta property="og:image" content="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/transfer_speed_2.png">
 <meta property="article:published_time" content="2021-09-14T11:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-03T01:49:43.363Z">
+<meta property="article:modified_time" content="2021-10-03T01:55:36.018Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="Networking">
 <meta property="article:tag" content="ExpressRoute">
@@ -364,7 +364,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2021/09/14/azcopydatatransfer/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 703(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 702(words)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4(minutes)</span>
@@ -381,7 +381,7 @@
 <p><img src="robocopy_arch.png" alt="Robocopy Architecture"></p>
 <p>I initially used Robocopy tool to migrate the files and wasn’t experiencing a great bandwidth consumption during the migration. I was able to achieve maximum 280Mbps even though I used multithread data copy using the robocopy option. I had plenty of capacity available in the ExpressRoute, however, robocopy was not pushing the data transfer speeds beyond this limit.<br>Following is an example small copy result. </p>
 <p><img src="robocopy.png" alt="Robocopy Architecture"></p>
-<p>As you can see, it was only achieving 265 Mbps. </p>
+<p>As you can see, it was only achieving <code>265Mbps</code>. </p>
 <h2 id="Investigation"><a href="#Investigation" class="headerlink" title="Investigation"></a>Investigation</h2><p>While reading about the Robocopy, I learned, even if we use multi-threaded flag, with high latency data copy it doesn’t achieve a high speed because it uses SMB for the data transfer. In other words, Robocopy is not the best tool to copy data across high latency connections. The reason for that is SMB protocol is not designed to copy with high latency connections. There is a single TCP connection maximum bandwidth limit to be aware here has well. In Azure, there are some measured single session TCP maximum bandwidth limits documented <a href="https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-network-performance#latencybandwidth-results" target="_blank" rel="noopener">here</a>. This will give you a guide around the limits. </p>
 <p>Moving on from Robocopy, I used FTP as another method for the copy job. I used <a href="https://filezilla-project.org/" target="_blank" rel="noopener">FileZilla</a> tool for this. This required an FTP server to be configured on the source side; and the data to be pulled from an FTP client at the target side. Note that this also required additional ports (port 21 by default) opened between the source server and the destination.<br>I managed to achieve slightly higher data transfer rates using this method, however, still it wasn’t utilizing the full ExpressRoute bandwidth. This resulted in me looking for other options. </p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>I initially looked at using <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10" target="_blank" rel="noopener">azcopy</a> tool for this job. However, I didn’t go with this path because it can only copy files to an Azure Storage account, e.g. Blob store. Because of the low maximum bandwidth achieved from the robocopy and FTP, I was compelled to investigate this method again. My requirement was to copy files from the source server to the destination server, therefore with azcopy, I had to (1) first upload the files to a staging storage account, then (2) download the files the destination server. Even though this is a two-step approach, this gave me faster throughputs during the copy. This resulted in a significantly quicker end to end completion time compared to the robocopy. The key point to mention here is, azcopy is designed for high latency copy jobs. Therefore, it pushes the throughputs to the maximum available in the link. </p>
