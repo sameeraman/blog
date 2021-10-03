@@ -17,16 +17,30 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Category: Networking | Crazy Cloud Ideas</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Crazy Cloud Ideas">
-<meta property="og:url" content="https://sameeraman.github.io/categories/networking/index.html">
+  <title>Server to Server Data copy using AzCopy | Crazy Cloud Ideas</title>
+  <meta name="description" content="If you are migrating your workloads to the cloud, you most probably have come across in scenarios where you need to copy large amount of data cross the network into the cloud. In this post, I’m going">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Server to Server Data copy using AzCopy">
+<meta property="og:url" content="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/index.html">
 <meta property="og:site_name" content="Crazy Cloud Ideas">
+<meta property="og:description" content="If you are migrating your workloads to the cloud, you most probably have come across in scenarios where you need to copy large amount of data cross the network into the cloud. In this post, I’m going">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/robocopy_arch.png">
+<meta property="og:image" content="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/robocopy.png">
+<meta property="og:image" content="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/azcopy_arch.png">
+<meta property="og:image" content="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/transfer_speed_1.png">
+<meta property="og:image" content="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/transfer_speed_2.png">
+<meta property="article:published_time" content="2021-09-14T11:00:00.000Z">
+<meta property="article:modified_time" content="2021-10-03T01:49:43.363Z">
 <meta property="article:author" content="Sameera Perera">
+<meta property="article:tag" content="Networking">
+<meta property="article:tag" content="ExpressRoute">
+<meta property="article:tag" content="PrivateLink">
+<meta property="article:tag" content="AzCopy">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/robocopy_arch.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://sameeraman.github.io/categories/networking/index.html">
+  <link rel="canonical" href="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Crazy Cloud Ideas" type="application/atom+xml">
   
@@ -310,81 +324,150 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="content article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">Category: Networking</h1>
-      <p class="hidden-xs">Total 4 articles</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/blog/categories">All</a></li>
-          
-          <li><a href="/blog/categories/networking/">Networking</a></li>
-          
-          <li><a href="/blog/categories/containers/">Containers</a></li>
-          
-          <li><a href="/blog/categories/governance/">Governance</a></li>
-          
-          <li><a href="/blog/categories/devops/">DevOps</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="panel panel-default b-no">
-    <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapseNetworking" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              Networking
-            </a>
-            <small class="text-muted">(Total 4 articles)</small>
-        </h4>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-azcopydatatransfer" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Server to Server Data copy using AzCopy
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2021/09/14/azcopydatatransfer/" class="article-date">
+	  <time datetime="2021-09-14T11:00:00.000Z" itemprop="datePublished">2021-09-14</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/blog/categories/networking/">Networking</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/blog/tags/azcopy/" rel="tag">AzCopy</a>, <a class="article-tag-link" href="/blog/tags/expressroute/" rel="tag">ExpressRoute</a>, <a class="article-tag-link" href="/blog/tags/networking/" rel="tag">Networking</a>, <a class="article-tag-link" href="/blog/tags/privatelink/" rel="tag">PrivateLink</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2021/09/14/azcopydatatransfer/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 703(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4(minutes)</span>
+	
+
+      </div>
     </div>
-    <div id="collapseNetworking" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingNetworking">
-        <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/blog/2021/09/14/azcopydatatransfer/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2021-09-14T11:00:00.000Z" itemprop="datePublished">2021-09-14</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Server to Server Data copy using AzCopy
-</a>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>If you are migrating your workloads to the cloud, you most probably have come across in scenarios where you need to copy large amount of data cross the network into the cloud. In this post, I’m going to be talking about my experience in one of those scenarios and my observations. The observations and learning are interesting and worth sharing. Therefore, continue reading this article to the end. </p>
+<a id="more"></a>
 
+<h2 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h2><p>Recently, I was involved in a Server-to-Server data migration over the Azure ExpressRoute. This scenario had a high latency connection from the on-promises to the cloud; it was around 60ms route trip time.  </p>
+<p><img src="robocopy_arch.png" alt="Robocopy Architecture"></p>
+<p>I initially used Robocopy tool to migrate the files and wasn’t experiencing a great bandwidth consumption during the migration. I was able to achieve maximum 280Mbps even though I used multithread data copy using the robocopy option. I had plenty of capacity available in the ExpressRoute, however, robocopy was not pushing the data transfer speeds beyond this limit.<br>Following is an example small copy result. </p>
+<p><img src="robocopy.png" alt="Robocopy Architecture"></p>
+<p>As you can see, it was only achieving 265 Mbps. </p>
+<h2 id="Investigation"><a href="#Investigation" class="headerlink" title="Investigation"></a>Investigation</h2><p>While reading about the Robocopy, I learned, even if we use multi-threaded flag, with high latency data copy it doesn’t achieve a high speed because it uses SMB for the data transfer. In other words, Robocopy is not the best tool to copy data across high latency connections. The reason for that is SMB protocol is not designed to copy with high latency connections. There is a single TCP connection maximum bandwidth limit to be aware here has well. In Azure, there are some measured single session TCP maximum bandwidth limits documented <a href="https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-network-performance#latencybandwidth-results" target="_blank" rel="noopener">here</a>. This will give you a guide around the limits. </p>
+<p>Moving on from Robocopy, I used FTP as another method for the copy job. I used <a href="https://filezilla-project.org/" target="_blank" rel="noopener">FileZilla</a> tool for this. This required an FTP server to be configured on the source side; and the data to be pulled from an FTP client at the target side. Note that this also required additional ports (port 21 by default) opened between the source server and the destination.<br>I managed to achieve slightly higher data transfer rates using this method, however, still it wasn’t utilizing the full ExpressRoute bandwidth. This resulted in me looking for other options. </p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>I initially looked at using <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10" target="_blank" rel="noopener">azcopy</a> tool for this job. However, I didn’t go with this path because it can only copy files to an Azure Storage account, e.g. Blob store. Because of the low maximum bandwidth achieved from the robocopy and FTP, I was compelled to investigate this method again. My requirement was to copy files from the source server to the destination server, therefore with azcopy, I had to (1) first upload the files to a staging storage account, then (2) download the files the destination server. Even though this is a two-step approach, this gave me faster throughputs during the copy. This resulted in a significantly quicker end to end completion time compared to the robocopy. The key point to mention here is, azcopy is designed for high latency copy jobs. Therefore, it pushes the throughputs to the maximum available in the link. </p>
+<p><img src="azcopy_arch.png" alt="AzCopy Architecture"></p>
+<p>With the usage of the Azure Private endpoints, the route of the file transfer traffic, still stays the same. It copies the files over the ExpressRoute to the same virtual network. Therefore, from a security perspective, it’s not a huge compromise. </p>
+<p>What is significant to note in here is the download speed from the storage account to the target server. Because they are in the same region, it managed to achieve throughputs as high as 10Gbps. Therefore, time taken in the step 2 is neglectable when compared to the step 1.</p>
+<p>Following is an example upload speed achieved. </p>
+<p><img src="transfer_speed_1.png" alt="Upload Speed"></p>
+<p>Following is an example download speed achieved. </p>
+<p><img src="transfer_speed_2.png" alt="Download Speed"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>The conclusion here is, direct copy using traditional methods (like robocopy) in high latency scenarios, especially migrating data to the cloud, is not always the best method. There are other tools specifically designed for high latency scenarios (like azcopy). Even though they can’t do server-to-server direct copy, they can perform better in a two-step approach to migrate the files to the destination/cloud. </p>
 
-              
-                
-<a href="/blog/2021/04/10/vwanntemplate/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2021-04-10T09:34:48.000Z" itemprop="datePublished">2021-04-10</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Azure Virtual WAN N region Bicep Template
-</a>
-
-
-              
-                
-<a href="/blog/2020/11/04/globalreach/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-11-04T11:24:44.000Z" itemprop="datePublished">2020-11-04</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Azure Global Reach in Action
-</a>
-
-
-              
-                
-<a href="/blog/2020/10/05/usg2vwanbgp/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-05T09:34:48.000Z" itemprop="datePublished">2020-10-05</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Connect Ubiquiti USG to Azure VWAN Gateway using BGP
-</a>
-
-
-              
-            </div>
-        </div>
+      
     </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://sameeraman.github.io/2021/09/14/azcopydatatransfer/" title="Server to Server Data copy using AzCopy" target="_blank" rel="external">https://sameeraman.github.io/2021/09/14/azcopydatatransfer/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/sameeraman" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/sameeraman" target="_blank"><span class="text-dark">Sameera Perera</span><small class="ml-1x">Cloud Solution Architect</small></a></h3>
+        <div>Think out Cloud</div>
+      </div>
+    </figure>
+  </div>
 </div>
+
+
     </div>
   </article>
-   
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/blog/2021/06/20/mgauditlogs/" title="Azure Management Groups Activity logs to Azure Monitor"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="linkedin,twitter,facebook" data-mobile-sites="linkedin,twitter,facebook"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -445,6 +528,31 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '5731622ffcaccc33f244',
+    clientSecret: 'e9c1555d0547349b52e41b07283ae274ba517d8c',
+    repo: 'blog',
+    owner: 'sameeraman',
+    admin: ['sameeraman'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
 
 
 
