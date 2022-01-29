@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://sameeraman.github.io/2022/01/29/azuresiterecoveryplan/failover2.png">
 <meta property="og:image" content="https://sameeraman.github.io/2022/01/29/azuresiterecoveryplan/failover3.png">
 <meta property="article:published_time" content="2022-01-29T11:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-29T06:30:34.437Z">
+<meta property="article:modified_time" content="2022-01-29T07:09:21.582Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="ASR">
 <meta property="article:tag" content="Site Recovery">
@@ -365,7 +365,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2022/01/29/azuresiterecoveryplan/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 633(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 623(words)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 3(minutes)</span>
@@ -396,7 +396,7 @@
 <li>Update DNS records post failover</li>
 </ul>
 <p>In the above example, I’ll be using a custom script to update the SQL connection string, SQL Server IP address with the new IP address. I use the <code>Invoke-AzVMRunCommand</code> <a href="https://docs.microsoft.com/en-us/powershell/module/az.compute/invoke-azvmruncommand?WT.mc_id=itopstalk-blog-thmaure&view=azps-7.1.0" target="_blank" rel="noopener">Powershell command</a> to run a script on the server to update the connection string.</p>
-<p>Have a look at the Runbook PowerShell script here - [UpdateSQLIP.ps1] (<a href="https://github.com/sameeraman/Scripts/blob/master/ASRRunbookSample/UpdateSQLIP.ps1" target="_blank" rel="noopener">https://github.com/sameeraman/Scripts/blob/master/ASRRunbookSample/UpdateSQLIP.ps1</a>)</p>
+<p>Have a look at the Runbook PowerShell script here - <a href="https://github.com/sameeraman/Scripts/blob/master/ASRRunbookSample/UpdateSQLIP.ps1" target="_blank" rel="noopener">UpdateSQLIP.ps1</a></p>
 <p>I also have another script that add a 1 minute delay for the failover between the two servers. It’s actually not required, but I have added it to showcase another use of scripts. That script can be found in the link here - <a href="https://github.com/sameeraman/Scripts/blob/master/ASRRunbookSample/Delay1minute.ps1" target="_blank" rel="noopener">Delay1minute.ps1</a>.</p>
 <p>So putting them all together in the Recovery plan, it looks as below. </p>
 <p><img src="rplan1.png" alt="rplan1.png"></p>
