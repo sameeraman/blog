@@ -18,12 +18,12 @@
   
   
   <title>Azure Site Recovery Plan Example Explained | Crazy Cloud Ideas</title>
-  <meta name="description" content="Recently I was working on a demo for a customer on Azure Site Recovery Plans and I thought I share my setup in here so that it would be beneficial for someone else as well. This post includes a end-to">
+  <meta name="description" content="Recently I was working on a demo for a customer on Azure Site Recovery Plans and I thought I share my setup in here so that it would be beneficial for someone else as well. This post includes an end-t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure Site Recovery Plan Example Explained">
 <meta property="og:url" content="https://sameeraman.github.io/2022/01/29/azuresiterecoveryplan/index.html">
 <meta property="og:site_name" content="Crazy Cloud Ideas">
-<meta property="og:description" content="Recently I was working on a demo for a customer on Azure Site Recovery Plans and I thought I share my setup in here so that it would be beneficial for someone else as well. This post includes a end-to">
+<meta property="og:description" content="Recently I was working on a demo for a customer on Azure Site Recovery Plans and I thought I share my setup in here so that it would be beneficial for someone else as well. This post includes an end-t">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sameeraman.github.io/2022/01/29/azuresiterecoveryplan/asrlabsetup.png">
 <meta property="og:image" content="https://sameeraman.github.io/2022/01/29/azuresiterecoveryplan/todoapp.png">
@@ -33,8 +33,9 @@
 <meta property="og:image" content="https://sameeraman.github.io/2022/01/29/azuresiterecoveryplan/failover1.png">
 <meta property="og:image" content="https://sameeraman.github.io/2022/01/29/azuresiterecoveryplan/failover2.png">
 <meta property="og:image" content="https://sameeraman.github.io/2022/01/29/azuresiterecoveryplan/failover3.png">
+<meta property="og:image" content="https://img.youtube.com/vi/vF6d2GhL5wo/0.jpg">
 <meta property="article:published_time" content="2022-01-29T11:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-29T07:09:21.582Z">
+<meta property="article:modified_time" content="2022-01-31T08:15:47.042Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="ASR">
 <meta property="article:tag" content="Site Recovery">
@@ -365,17 +366,17 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2022/01/29/azuresiterecoveryplan/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 623(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 645(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 3(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4(minutes)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Recently I was working on a demo for a customer on Azure Site Recovery Plans and I thought I share my setup in here so that it would be beneficial for someone else as well. This post includes a end-to-end demo of Azure Site Recovery Plans along with a real world sample application. </p>
+        <p>Recently I was working on a demo for a customer on Azure Site Recovery Plans and I thought I share my setup in here so that it would be beneficial for someone else as well. This post includes an end-to-end demo of Azure Site Recovery Plans along with a real world sample application. </p>
 <a id="more"></a>
 
 <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>In summary, I have an environment that has two virtual networks, one in West US 2 and one in East US. Both of the networks are connected to the on-premises via a central hub network. I have a two tier application that runs in the West US 2 region. The sample application is a Todo Application that has a DotNet core 6 web application and a SQL backend (<a href="https://github.com/sameeraman/DotNetCoreSQLDB" target="_blank" rel="noopener">https://github.com/sameeraman/DotNetCoreSQLDB</a>).  So the overall setup looks as below. </p>
@@ -410,6 +411,7 @@
 <p>As you can see the application has been successfully failed over to the secondary region. The orchestration was fully automated end-to-end. </p>
 <p>Using the same recovery plan, you can also fail back to the primary region again. But I will not cover that in this blog. </p>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>As you can see, Azure Site Recovery Plans let’s you <strong>fully automate the application infrastructure failover</strong> and <strong>reduce the RTO</strong> in your application. It allows you to add <strong>pre and post actions</strong> for each group you failover. <strong>Azure Automation Runbook scripts</strong> make it possible to execute <strong>anything you like as pre and post tasks</strong>.</p>
+<p>I mada full video with an end-to-end demo on the above. Click on the link below to watch the video.<br><a href="https://www.youtube.com/watch?v=vF6d2GhL5wo" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/vF6d2GhL5wo/0.jpg" alt="Site Recovery Plans Youtube Video"></a></p>
 
       
     </div>
