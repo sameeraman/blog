@@ -17,26 +17,42 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Azure Virtual WAN N region Bicep Template | Crazy Cloud Ideas</title>
-  <meta name="description" content="This blog post is about a Bicep Template that I authored to create a lab environment for customer scenarios and use cases. It creates a VWAN with N number of VWAN hubs in N regions. It also creates sp">
+  <title>Azure Arc Resource Bridge - End User Experience | Crazy Cloud Ideas</title>
+  <meta name="description" content="In this blog post, we will be looking at this new cool feature called Azure Arc Resource Bridge.  I have been deploying an Azure Stack HCI at home and I wanted to explore the Azure Arc Resource Bridge">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure Virtual WAN N region Bicep Template">
-<meta property="og:url" content="https://sameeraman.github.io/2021/04/10/vwanntemplate/index.html">
+<meta property="og:title" content="Azure Arc Resource Bridge - End User Experience">
+<meta property="og:url" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/index.html">
 <meta property="og:site_name" content="Crazy Cloud Ideas">
-<meta property="og:description" content="This blog post is about a Bicep Template that I authored to create a lab environment for customer scenarios and use cases. It creates a VWAN with N number of VWAN hubs in N regions. It also creates sp">
+<meta property="og:description" content="In this blog post, we will be looking at this new cool feature called Azure Arc Resource Bridge.  I have been deploying an Azure Stack HCI at home and I wanted to explore the Azure Arc Resource Bridge">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://sameeraman.github.io/2021/04/10/vwanntemplate/vWAN2R_B.png">
-<meta property="og:image" content="https://sameeraman.github.io/2021/04/10/vwanntemplate/vWAN3R_B.png">
-<meta property="article:published_time" content="2021-04-10T09:34:48.000Z">
-<meta property="article:modified_time" content="2023-01-03T03:59:11.953Z">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/architecture.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/resources1.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal1.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal2.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal3.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal4.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal5.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal6.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal7.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal8.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal9.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal10.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal11.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal12.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal13.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal14.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal15.png">
+<meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal16.png">
+<meta property="article:published_time" content="2023-01-03T11:24:44.000Z">
+<meta property="article:modified_time" content="2023-01-03T03:59:11.921Z">
 <meta property="article:author" content="Sameera Perera">
-<meta property="article:tag" content="Networking">
-<meta property="article:tag" content="VWAN">
-<meta property="article:tag" content="Bicep">
+<meta property="article:tag" content="Hybrid">
+<meta property="article:tag" content="Azure Arc">
+<meta property="article:tag" content="Resource Bridge">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sameeraman.github.io/2021/04/10/vwanntemplate/vWAN2R_B.png">
+<meta name="twitter:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/architecture.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://sameeraman.github.io/2021/04/10/vwanntemplate/index.html">
+  <link rel="canonical" href="https://sameeraman.github.io/2023/01/03/arcresourcebridge/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Crazy Cloud Ideas" type="application/atom+xml">
   
@@ -323,14 +339,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-vwanntemplate" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-arcresourcebridge" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Azure Virtual WAN N region Bicep Template
+      Azure Arc Resource Bridge - End User Experience
     </h1>
   
 
@@ -338,47 +354,64 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/blog/2021/04/10/vwanntemplate/" class="article-date">
-	  <time datetime="2021-04-10T09:34:48.000Z" itemprop="datePublished">2021-04-10</time>
+	<a href="/blog/2023/01/03/arcresourcebridge/" class="article-date">
+	  <time datetime="2023-01-03T11:24:44.000Z" itemprop="datePublished">2023-01-03</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/blog/categories/networking/">Networking</a>
+    <a class="article-category-link" href="/blog/categories/hybrid/">Hybrid</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/blog/tags/bicep/" rel="tag">Bicep</a>, <a class="article-tag-link" href="/blog/tags/networking/" rel="tag">Networking</a>, <a class="article-tag-link" href="/blog/tags/vwan/" rel="tag">VWAN</a>
+	<a class="article-tag-link" href="/blog/tags/azure-arc/" rel="tag">Azure Arc</a>, <a class="article-tag-link" href="/blog/tags/hybrid/" rel="tag">Hybrid</a>, <a class="article-tag-link" href="/blog/tags/resource-bridge/" rel="tag">Resource Bridge</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2021/04/10/vwanntemplate/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2023/01/03/arcresourcebridge/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 139(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 456(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 1(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 2(minutes)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>This blog post is about a Bicep Template that I authored to create a lab environment for customer scenarios and use cases. It creates a VWAN with N number of VWAN hubs in N regions. It also creates spoke VNet in each region including a VM. The template can be found in the following location with further details on how to use it.</p>
+        <p>In this blog post, we will be looking at this new cool feature called Azure Arc Resource Bridge. </p>
+<p>I have been deploying an Azure Stack HCI at home and I wanted to explore the Azure Arc Resource Bridge to lay some icing on the cake. This blog explains the end user experience, so that you will get an understanding what can be achieved using this service.  </p>
 <a id="more"></a>
 
-<p><a href="https://github.com/sameeraman/n_vwan_bicep_template" target="_blank" rel="noopener">https://github.com/sameeraman/n_vwan_bicep_template</a></p>
-<p>Some of the example implementations that you can do using the template are below. </p>
-<h2 id="Azure-VWAN-2-Region-Setup"><a href="#Azure-VWAN-2-Region-Setup" class="headerlink" title="Azure VWAN 2 Region Setup"></a>Azure VWAN 2 Region Setup</h2><p>You can provision an Azure VWAN 2 region model including 2 VWAN Hubs, a VNET and VM in each region. The final solution after deployment will look like below. </p>
-<p><img src="vWAN2R_B.png" alt="VWAN 2 Region"></p>
-<h2 id="Azure-VWAN-3-Region-Setup"><a href="#Azure-VWAN-3-Region-Setup" class="headerlink" title="Azure VWAN 3 Region Setup"></a>Azure VWAN 3 Region Setup</h2><p>You can also provision a setup with 3 VWAN hubs like above. The final solution after deployment will like below.</p>
-<p><img src="vWAN3R_B.png" alt="VWAN 3 Region"></p>
+<p>Azure Arc Resource Bridge is a component of the Azure Arc Platform that provides self-serving capabilities for virtualized environments such as Azure Stack HCI and VMware. With that, you will be able to create, update and delete virtual machines in Azure Stack HCI clusters and VMware Clusters. All those environments can be centrally managed via the Azure Portal for their day-to-day operations. More importantly, you can use the same Infrastructure as Code tool sets to deploy and manage your workloads, regardless of where they are located. </p>
+<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><p>The high-level architecture for the Azure Arc Resource Bridge is shown below. </p>
+<p><img src="architecture.png" alt="Architecture"></p>
+<p>This includes two main components on the Azure side, cluster-extensions and custom locations. Custom location represents a logical location for the connected Azure Arc Resource Bridge. Cluster extension represents the projected components that is provisioned on-prem in the cluster. Note that Vmware and Stack HCI have different cluster extension components. </p>
+<p>Once you have a setup Azure Arc Resource Bridge along side of your HCI cluster, you will see all the resources are projected into the Azure subscription. </p>
+<p><img src="resources1.png" alt="Azure Resource Bridge Resources"></p>
+<p>The above setup, there is a resource bridge resource that represents the resource bridge properties and configuration. Then we have a custom location resource that represents a location for the HCI. We also have Gallery Images that presents my windows image, then also have a vnet that represents my lab network at home. They are all projected as Azure Resources to work as a harmony to provision the required workloads in my lab environment.</p>
+<h2 id="End-User-Experience"><a href="#End-User-Experience" class="headerlink" title="End User Experience"></a>End User Experience</h2><p>Let’s have a look at the end user experience of managing the VM’s when Azure Arc Resource Bridge is fully setup. </p>
+<h3 id="Create-a-VM-using-the-Portal"><a href="#Create-a-VM-using-the-Portal" class="headerlink" title="Create a VM using the Portal"></a>Create a VM using the Portal</h3><p>Login to the Azure Portal and navigate to Virtual Machines.</p>
+<p><img src="portal1.png" alt="Portal Experience Screenshot 1"></p>
+<p><img src="portal2.png" alt="Portal Experience Screenshot 2"></p>
+<p><img src="portal3.png" alt="Portal Experience Screenshot 3"><br>Select Resource Groups, enter VM Name, select, custom location and image reference. </p>
+<p><img src="portal4.png" alt="Portal Experience Screenshot 4"><br>Enter Administrator username and Password. </p>
+<p><img src="portal5.png" alt="Portal Experience Screenshot 5"><br>Add any additional data disks that is required for the VM. In my case, I’m not going to attach any additional data disks outside of the OS disk. </p>
+<p><img src="portal6.png" alt="Portal Experience Screenshot 6"><br>Add the Network Adapters required under the networking blade.<br>I’ll be adding one Network interfaces connecting the VM to my lab network. </p>
+<p><img src="portal7.png" alt="Portal Experience Screenshot 7"><br>I set the IP address to dynamic so it will get an IP address from the DHCP. </p>
+<p><img src="portal8.png" alt="Portal Experience Screenshot 8"></p>
+<p>Add any tags required. </p>
+<p><img src="portal9.png" alt="Portal Experience Screenshot 9"><br>In Summary, Review and create. </p>
+<p><img src="portal10.png" alt="Portal Experience Screenshot 10"></p>
+<p><img src="portal11.png" alt="Portal Experience Screenshot 11"><br><img src="portal12.png" alt="Portal Experience Screenshot 12"><br><img src="portal13.png" alt="Portal Experience Screenshot 13"><br><img src="portal14.png" alt="Portal Experience Screenshot 14"><br><img src="portal15.png" alt="Portal Experience Screenshot 15"></p>
+<p><img src="portal16.png" alt="Portal Experience Screenshot 16"></p>
 
       
     </div>
@@ -388,7 +421,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://sameeraman.github.io/2021/04/10/vwanntemplate/" title="Azure Virtual WAN N region Bicep Template" target="_blank" rel="external">https://sameeraman.github.io/2021/04/10/vwanntemplate/</a>
+      <a href="https://sameeraman.github.io/2023/01/03/arcresourcebridge/" title="Azure Arc Resource Bridge - End User Experience" target="_blank" rel="external">https://sameeraman.github.io/2023/01/03/arcresourcebridge/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -434,13 +467,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/blog/2021/06/20/mgauditlogs/" title="Azure Management Groups Activity logs to Azure Monitor"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/blog/2020/11/04/globalreach/" title="Azure Global Reach in Action"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/blog/2022/10/01/classicvms/" title="Classic VM Retirement - Am I safe ?"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
