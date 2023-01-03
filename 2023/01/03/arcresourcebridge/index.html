@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal15.png">
 <meta property="og:image" content="https://sameeraman.github.io/2023/01/03/arcresourcebridge/portal16.png">
 <meta property="article:published_time" content="2023-01-03T11:24:44.000Z">
-<meta property="article:modified_time" content="2023-01-03T03:59:11.921Z">
+<meta property="article:modified_time" content="2023-01-03T04:26:18.315Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="Hybrid">
 <meta property="article:tag" content="Azure Arc">
@@ -376,10 +376,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2023/01/03/arcresourcebridge/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 456(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 651(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 2(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4(minutes)</span>
 	
 
       </div>
@@ -410,8 +410,13 @@
 <p>Add any tags required. </p>
 <p><img src="portal9.png" alt="Portal Experience Screenshot 9"><br>In Summary, Review and create. </p>
 <p><img src="portal10.png" alt="Portal Experience Screenshot 10"></p>
-<p><img src="portal11.png" alt="Portal Experience Screenshot 11"><br><img src="portal12.png" alt="Portal Experience Screenshot 12"><br><img src="portal13.png" alt="Portal Experience Screenshot 13"><br><img src="portal14.png" alt="Portal Experience Screenshot 14"><br><img src="portal15.png" alt="Portal Experience Screenshot 15"></p>
-<p><img src="portal16.png" alt="Portal Experience Screenshot 16"></p>
+<p><img src="portal11.png" alt="Portal Experience Screenshot 11"></p>
+<p>Once the VM is successfully provisioned, you will see the VM in the resource group with the following properties.<br><img src="portal12.png" alt="Portal Experience Screenshot 12"></p>
+<p>If I navigate to the Windows Admin Center, I can see the new VM has been created in the local cluster.<br><img src="portal13.png" alt="Portal Experience Screenshot 13"></p>
+<p>The IP address on the VM is taken out from the local VNET that we created.<br><img src="portal14.png" alt="Portal Experience Screenshot 14"></p>
+<p>The IP address that appears on the Azure VM in the portal is a IP address from the local VNET that we created.<br><img src="portal15.png" alt="Portal Experience Screenshot 15"></p>
+<p>To double confirm, we will RDP into the VM and check the IP address of the newly created VM. It is the same VM.<br><img src="portal16.png" alt="Portal Experience Screenshot 16"></p>
+<p>In summary, Azure Arc Resource Bridge is a service that allows users to manage virtual machines in Azure Stack HCI and VMware clusters through the Azure Portal, using the same management tools as the cloud. The service projects resources, such as virtual network and gallery images, into an Azure subscription to enable the deployment of workloads in on-premises environments. In this post we walked through the real life experience of management of VM’s in your local data center using the Azure Management pane. Hope this post was informative for you. </p>
 
       
     </div>
