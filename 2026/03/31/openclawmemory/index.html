@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sameeraman.github.io/2026/03/31/openclawmemory/memory-architecture.png">
 <meta property="article:published_time" content="2026-03-31T16:45:00.000Z">
-<meta property="article:modified_time" content="2026-03-31T11:52:09.935Z">
+<meta property="article:modified_time" content="2026-03-31T12:10:04.900Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="OpenClaw">
@@ -398,7 +398,7 @@
 <h3 id="Layer-3-Daily-Memory-Files-The-Raw-Logs"><a href="#Layer-3-Daily-Memory-Files-The-Raw-Logs" class="headerlink" title="Layer 3: Daily Memory Files - The Raw Logs"></a>Layer 3: Daily Memory Files - The Raw Logs</h3><p>Every day gets its own file: <code>memory/2026-03-31.md</code>. These are chronological logs of what happened—tasks completed, conversations, errors encountered, decisions made.</p>
 <p>The agent loads <strong>today’s and yesterday’s</strong> daily files on startup, giving it immediate short-term context without having to search.</p>
 <p>Example daily note:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 2026-03-26</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 09:40 - Azure Key Vault NSP Testing</span></span><br><span class="line"><span class="bullet">- </span>Created test script for Network Security Perimeter validation</span><br><span class="line"><span class="bullet">- </span>Tests create/read operations from different IP locations</span><br><span class="line"><span class="bullet">- </span>Script: ~/workspace/test-keyvault-nsp.sh</span><br><span class="line"></span><br><span class="line"><span class="section">## 15:24 - Resource Graph Query</span></span><br><span class="line"><span class="bullet">- </span>Generated KQL query for resource counts by service category</span><br><span class="line"><span class="bullet">- </span>Azure Resource Graph has limited KQL support (no nested subqueries)</span><br><span class="line"><span class="bullet">- </span>Final working query in: resource-count-detailed.kql</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 2026-03-26</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 09:40 - Cloud Infrastructure Testing</span></span><br><span class="line"><span class="bullet">- </span>Created test script for network security validation</span><br><span class="line"><span class="bullet">- </span>Tests create/read operations from different locations</span><br><span class="line"><span class="bullet">- </span>Script: ~/workspace/test-security.sh</span><br><span class="line"></span><br><span class="line"><span class="section">## 15:24 - Database Query Optimization</span></span><br><span class="line"><span class="bullet">- </span>Generated query for resource counts by category</span><br><span class="line"><span class="bullet">- </span>Database has limited query support (no nested subqueries)</span><br><span class="line"><span class="bullet">- </span>Final working query in: resource-count-detailed.sql</span><br></pre></td></tr></table></figure>
 
 <p>These daily files serve two purposes:</p>
 <ol>
@@ -406,7 +406,7 @@
 <li><strong>Source material</strong> for updating <code>MEMORY.md</code> during periodic reviews</li>
 </ol>
 <h3 id="Layer-4-memory-search-Semantic-Search"><a href="#Layer-4-memory-search-Semantic-Search" class="headerlink" title="Layer 4: memory_search - Semantic Search"></a>Layer 4: memory_search - Semantic Search</h3><p>Here’s where it gets interesting. The agent doesn’t load everything—it <strong>searches</strong> for relevant context using semantic similarity.</p>
-<p>Before answering questions about past work, the agent:</p>
+<p>Before answering questions about past activities, the agent:</p>
 <ol>
 <li>Runs <code>memory_search(&quot;your question&quot;)</code></li>
 <li>Gets back the most relevant snippets from all memory files</li>
@@ -429,31 +429,31 @@
 
 <h2 id="Context-Building-in-Action"><a href="#Context-Building-in-Action" class="headerlink" title="Context Building in Action"></a>Context Building in Action</h2><p>Let’s walk through a real example. Say I send this message:</p>
 <blockquote>
-<p>“Can you help me with that NSP script we worked on last week?”</p>
+<p>“Can you help me with that security script we worked on last week?”</p>
 </blockquote>
 <p>Here’s what happens:</p>
 <p><strong>Identity Layer (loaded on startup):</strong></p>
 <ul>
 <li>SOUL.md: Agent knows its personality</li>
-<li>USER.md: Knows my name, timezone, work context</li>
+<li>USER.md: Knows my name, timezone, context</li>
 <li>IDENTITY.md: Knows it’s Clawman 🦀</li>
 </ul>
 <p><strong>Recent Context (loaded on startup):</strong></p>
 <ul>
 <li>Today’s daily file (mostly empty)</li>
-<li>Yesterday’s daily file (recent work)</li>
+<li>Yesterday’s daily file (recent activity)</li>
 </ul>
 <p><strong>Semantic Search (triggered by question):</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">memory_search(<span class="string">"NSP script Network Security Perimeter"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">memory_search(<span class="string">"security script network validation"</span>)</span><br></pre></td></tr></table></figure>
 
 <p><strong>Search Results:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">memory&#x2F;2026-03-26.md, lines 3-8:</span><br><span class="line">## 09:40 - Azure Key Vault NSP Testing</span><br><span class="line">- Created test script for Network Security Perimeter validation</span><br><span class="line">- Script: ~&#x2F;workspace&#x2F;test-keyvault-nsp.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">memory&#x2F;2026-03-26.md, lines 3-8:</span><br><span class="line">## 09:40 - Cloud Infrastructure Testing</span><br><span class="line">- Created test script for network security validation</span><br><span class="line">- Script: ~&#x2F;workspace&#x2F;test-security.sh</span><br></pre></td></tr></table></figure>
 
 <p>Now the agent has:</p>
 <ul>
 <li>Who it is (SOUL.md)</li>
 <li>Who I am (USER.md)</li>
-<li>What NSP means (from memory search)</li>
+<li>What the security script does (from memory search)</li>
 <li>Where the script is (from memory search)</li>
 <li>Recent conversation flow (daily files)</li>
 </ul>
@@ -488,7 +488,7 @@
 </blockquote>
 <p><strong>Do this:</strong></p>
 <blockquote>
-<p>“Recall our previous discussions about the Azure migration project, then help me with the next steps.”</p>
+<p>“Recall our previous discussions about Project X, then help me with the next steps.”</p>
 </blockquote>
 <p>This triggers <code>memory_search</code> to pull relevant context before the agent responds.</p>
 <h3 id="2-Use-Targeted-Memory-Queries"><a href="#2-Use-Targeted-Memory-Queries" class="headerlink" title="2. Use Targeted Memory Queries"></a>2. <strong>Use Targeted Memory Queries</strong></h3><p>I often use the QMD (Query Memory Data) approach—asking the agent to search specific topics:</p>
@@ -508,7 +508,7 @@
 <p>Everything else? You need to ask for it via <code>memory_search</code>.</p>
 <h3 id="4-Prime-the-Context-Early"><a href="#4-Prime-the-Context-Early" class="headerlink" title="4. Prime the Context Early"></a>4. <strong>Prime the Context Early</strong></h3><p>If you’re starting a work session, prime the context upfront:</p>
 <blockquote>
-<p>“Before we begin, recall everything about the BHP project, including our architecture decisions and any blockers we documented.”</p>
+<p>“Before we begin, recall everything about Project X, including our architecture decisions and any blockers we documented.”</p>
 </blockquote>
 <p>This loads the right context once, rather than discovering gaps mid-conversation.</p>
 <h3 id="5-Verify-What’s-Loaded"><a href="#5-Verify-What’s-Loaded" class="headerlink" title="5. Verify What’s Loaded"></a>5. <strong>Verify What’s Loaded</strong></h3><p>You can ask: *”What context do you have about [topic] right now?”*</p>
