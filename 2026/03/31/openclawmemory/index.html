@@ -25,14 +25,16 @@
 <meta property="og:site_name" content="Crazy Cloud Ideas">
 <meta property="og:description" content="Traditional chatbots forget everything between conversations. Every chat starts from scratch—no context, no history, no memory of what you discussed yesterday. It’s like working with someone who has a">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sameeraman.github.io/2026/03/31/openclawmemory/memory-architecture.png">
 <meta property="article:published_time" content="2026-03-31T16:45:00.000Z">
-<meta property="article:modified_time" content="2026-03-31T09:02:20.154Z">
+<meta property="article:modified_time" content="2026-03-31T09:12:10.263Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="OpenClaw">
 <meta property="article:tag" content="LLM">
 <meta property="article:tag" content="Agent Memory">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sameeraman.github.io/2026/03/31/openclawmemory/memory-architecture.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://sameeraman.github.io/2026/03/31/openclawmemory/index.html">
   
@@ -381,7 +383,8 @@
 <li><strong>Semantic search</strong> that finds relevant context on demand</li>
 </ul>
 <p>Let’s dive into each layer.</p>
-<h2 id="The-Four-Memory-Layers"><a href="#The-Four-Memory-Layers" class="headerlink" title="The Four Memory Layers"></a>The Four Memory Layers</h2><h3 id="Layer-1-SOUL-md-The-Agent’s-Personality"><a href="#Layer-1-SOUL-md-The-Agent’s-Personality" class="headerlink" title="Layer 1: SOUL.md - The Agent’s Personality"></a>Layer 1: SOUL.md - The Agent’s Personality</h3><p>Every OpenClaw agent has a <code>SOUL.md</code> file that defines its core personality and behavior. This file is loaded in <strong>every single session</strong>, providing the foundation for how the agent communicates.</p>
+<h2 id="The-Four-Memory-Layers"><a href="#The-Four-Memory-Layers" class="headerlink" title="The Four Memory Layers"></a>The Four Memory Layers</h2><p><img src="memory-architecture.png" alt="OpenClaw Memory Architecture"><br><em>OpenClaw’s session startup sequence: How context is built from SOUL.md, USER.md, AGENTS.md, TOOLS.md, daily files, and MEMORY.md</em></p>
+<h3 id="Layer-1-SOUL-md-The-Agent’s-Personality"><a href="#Layer-1-SOUL-md-The-Agent’s-Personality" class="headerlink" title="Layer 1: SOUL.md - The Agent’s Personality"></a>Layer 1: SOUL.md - The Agent’s Personality</h3><p>Every OpenClaw agent has a <code>SOUL.md</code> file that defines its core personality and behavior. This file is loaded in <strong>every single session</strong>, providing the foundation for how the agent communicates.</p>
 <p>Here’s what mine looks like:</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## Core Truths</span></span><br><span class="line"></span><br><span class="line">Be genuinely helpful, not performatively helpful. Skip the "Great question!" </span><br><span class="line">and "I'd be happy to help!" — just help.</span><br><span class="line"></span><br><span class="line">Have opinions. You're allowed to disagree, prefer things, find stuff amusing. </span><br><span class="line">An assistant with no personality is just a search engine with extra steps.</span><br><span class="line"></span><br><span class="line">Be resourceful before asking. Try to figure it out. Read the file. </span><br><span class="line">Check the context. Search for it. Then ask if you're stuck.</span><br></pre></td></tr></table></figure>
 
