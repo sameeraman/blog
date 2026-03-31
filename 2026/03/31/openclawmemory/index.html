@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>How AI Agents Remember: Understanding OpenClaw&#39;s Memory System | Crazy Cloud Ideas</title>
+  <meta name="description" content="Traditional chatbots forget everything between conversations. Every chat starts from scratch—no context, no history, no memory of what you discussed yesterday. It’s like working with someone who has a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How AI Agents Remember: Understanding OpenClaw&#39;s Memory System">
+<meta property="og:url" content="https://sameeraman.github.io/2026/03/31/openclawmemory/index.html">
+<meta property="og:site_name" content="Crazy Cloud Ideas">
+<meta property="og:description" content="Traditional chatbots forget everything between conversations. Every chat starts from scratch—no context, no history, no memory of what you discussed yesterday. It’s like working with someone who has a">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-03-31T16:45:00.000Z">
+<meta property="article:modified_time" content="2026-03-31T09:02:20.154Z">
+<meta property="article:author" content="Sameera Perera">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="OpenClaw">
+<meta property="article:tag" content="LLM">
+<meta property="article:tag" content="Agent Memory">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://sameeraman.github.io/2026/03/31/openclawmemory/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Crazy Cloud Ideas" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/sameeraman" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Sameera Perera</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Cloud Solution Architect</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Perth, Australia</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-petprojects">
+          <a href="/blog/petprojects">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Pet Projects</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sameeraman" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://twitter.com/sameeraman" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.facebook.com/sameeradman" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/sameeraman/" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2026/03/">March 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/08/">August 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/06/">June 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/01/">January 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ai/">AI</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/aks/">AKS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/asr/">ASR</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/compute/">Compute</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/containers/">Containers</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">DevOps</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/governance/">Governance</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/hybrid/">Hybrid</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/networking/">Networking</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ai/" rel="tag">AI</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/aks/" rel="tag">AKS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/asr/" rel="tag">ASR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/agent-memory/" rel="tag">Agent Memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apps/" rel="tag">Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/azcopy/" rel="tag">AzCopy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/azure-arc/" rel="tag">Azure Arc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/azure-open-ai/" rel="tag">Azure Open AI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bicep/" rel="tag">Bicep</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compute/" rel="tag">Compute</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/containers/" rel="tag">Containers</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/copilot/" rel="tag">Copilot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devops/" rel="tag">DevOps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/expressroute/" rel="tag">ExpressRoute</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/files/" rel="tag">Files</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github-actions/" rel="tag">Github Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/globalreach/" rel="tag">GlobalReach</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/governance/" rel="tag">Governance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/homeassistant/" rel="tag">HomeAssistant</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hybrid/" rel="tag">Hybrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kuberenetes/" rel="tag">Kuberenetes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/llm/" rel="tag">LLM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/networking/" rel="tag">Networking</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/openclaw/" rel="tag">OpenClaw</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/privatelink/" rel="tag">PrivateLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prompt-engineering/" rel="tag">Prompt Engineering</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/resource-bridge/" rel="tag">Resource Bridge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/site-recovery/" rel="tag">Site Recovery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/static-pages/" rel="tag">Static Pages</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/storage/" rel="tag">Storage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ubiquiti/" rel="tag">Ubiquiti</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vwan/" rel="tag">VWAN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/virtual-machines/" rel="tag">Virtual Machines</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/ai/" style="font-size: 13.67px;">AI</a> <a href="/blog/tags/aks/" style="font-size: 13px;">AKS</a> <a href="/blog/tags/asr/" style="font-size: 13px;">ASR</a> <a href="/blog/tags/agent-memory/" style="font-size: 13px;">Agent Memory</a> <a href="/blog/tags/apps/" style="font-size: 13px;">Apps</a> <a href="/blog/tags/azcopy/" style="font-size: 13px;">AzCopy</a> <a href="/blog/tags/azure-arc/" style="font-size: 13px;">Azure Arc</a> <a href="/blog/tags/azure-open-ai/" style="font-size: 13px;">Azure Open AI</a> <a href="/blog/tags/bicep/" style="font-size: 13px;">Bicep</a> <a href="/blog/tags/compute/" style="font-size: 13px;">Compute</a> <a href="/blog/tags/containers/" style="font-size: 13px;">Containers</a> <a href="/blog/tags/copilot/" style="font-size: 13px;">Copilot</a> <a href="/blog/tags/devops/" style="font-size: 13px;">DevOps</a> <a href="/blog/tags/docker/" style="font-size: 13px;">Docker</a> <a href="/blog/tags/expressroute/" style="font-size: 13.33px;">ExpressRoute</a> <a href="/blog/tags/files/" style="font-size: 13px;">Files</a> <a href="/blog/tags/github/" style="font-size: 13px;">Github</a> <a href="/blog/tags/github-actions/" style="font-size: 13px;">Github Actions</a> <a href="/blog/tags/globalreach/" style="font-size: 13px;">GlobalReach</a> <a href="/blog/tags/governance/" style="font-size: 13px;">Governance</a> <a href="/blog/tags/hexo/" style="font-size: 13px;">Hexo</a> <a href="/blog/tags/homeassistant/" style="font-size: 13px;">HomeAssistant</a> <a href="/blog/tags/hybrid/" style="font-size: 13px;">Hybrid</a> <a href="/blog/tags/kuberenetes/" style="font-size: 13px;">Kuberenetes</a> <a href="/blog/tags/llm/" style="font-size: 13.33px;">LLM</a> <a href="/blog/tags/networking/" style="font-size: 14px;">Networking</a> <a href="/blog/tags/openclaw/" style="font-size: 13px;">OpenClaw</a> <a href="/blog/tags/privatelink/" style="font-size: 13px;">PrivateLink</a> <a href="/blog/tags/prompt-engineering/" style="font-size: 13px;">Prompt Engineering</a> <a href="/blog/tags/resource-bridge/" style="font-size: 13px;">Resource Bridge</a> <a href="/blog/tags/site-recovery/" style="font-size: 13px;">Site Recovery</a> <a href="/blog/tags/static-pages/" style="font-size: 13px;">Static Pages</a> <a href="/blog/tags/storage/" style="font-size: 13px;">Storage</a> <a href="/blog/tags/ubiquiti/" style="font-size: 13px;">Ubiquiti</a> <a href="/blog/tags/vwan/" style="font-size: 13.33px;">VWAN</a> <a href="/blog/tags/virtual-machines/" style="font-size: 13px;">Virtual Machines</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/ai/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2026/03/31/openclawmemory/" class="title">How AI Agents Remember: Understanding OpenClaw&#39;s Memory System</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-03-31T16:45:00.000Z" itemprop="datePublished">2026-03-31</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/ai/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2025/08/30/aibooklets/" class="title">Use AI to Create Personalized Reading Booklets for Your Child</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-08-30T11:00:00.000Z" itemprop="datePublished">2025-08-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/ai/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2025/06/02/semantickernelha/" class="title">Building a Natural Language Interface for Home Assistant Using Semantic Kernel and Azure OpenAI</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-06-02T09:34:48.000Z" itemprop="datePublished">2025-06-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/hybrid/">Hybrid</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2023/01/03/arcresourcebridge/" class="title">Azure Arc Resource Bridge - End User Experience</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-01-03T11:24:44.000Z" itemprop="datePublished">2023-01-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/compute/">Compute</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2022/10/01/classicvms/" class="title">Classic VM Retirement - Am I safe ?</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-01T11:24:44.000Z" itemprop="datePublished">2022-10-01</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-openclawmemory" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      How AI Agents Remember: Understanding OpenClaw&#39;s Memory System
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2026/03/31/openclawmemory/" class="article-date">
+	  <time datetime="2026-03-31T16:45:00.000Z" itemprop="datePublished">2026-03-31</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/blog/categories/ai/">AI</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/blog/tags/ai/" rel="tag">AI</a>, <a class="article-tag-link" href="/blog/tags/agent-memory/" rel="tag">Agent Memory</a>, <a class="article-tag-link" href="/blog/tags/llm/" rel="tag">LLM</a>, <a class="article-tag-link" href="/blog/tags/openclaw/" rel="tag">OpenClaw</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2026/03/31/openclawmemory/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.4k(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 8(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>Traditional chatbots forget everything between conversations. Every chat starts from scratch—no context, no history, no memory of what you discussed yesterday. It’s like working with someone who has amnesia. OpenClaw takes a different approach by building agents that actually remember who they are and who you are, using a layered file-based memory system that’s both powerful and transparent.</p>
+<a id="more"></a>
+
+<p>In this post, I’ll break down how OpenClaw’s memory architecture works, based on my experience building and using AI agents with persistent memory. The complete source code and documentation are available in the <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">OpenClaw repository</a>.</p>
+<h2 id="The-Memory-Problem"><a href="#The-Memory-Problem" class="headerlink" title="The Memory Problem"></a>The Memory Problem</h2><p>Most AI assistants treat every conversation as a blank slate. You can use long context windows (100K+ tokens) to load chat history, but that’s expensive, slow, and hits limits quickly. There had to be a better way.</p>
+<p>OpenClaw solves this by separating memory into distinct layers:</p>
+<ul>
+<li><strong>Identity files</strong> that define who the agent is</li>
+<li><strong>Long-term memory</strong> with curated knowledge</li>
+<li><strong>Daily logs</strong> that capture recent activity</li>
+<li><strong>Semantic search</strong> that finds relevant context on demand</li>
+</ul>
+<p>Let’s dive into each layer.</p>
+<h2 id="The-Four-Memory-Layers"><a href="#The-Four-Memory-Layers" class="headerlink" title="The Four Memory Layers"></a>The Four Memory Layers</h2><h3 id="Layer-1-SOUL-md-The-Agent’s-Personality"><a href="#Layer-1-SOUL-md-The-Agent’s-Personality" class="headerlink" title="Layer 1: SOUL.md - The Agent’s Personality"></a>Layer 1: SOUL.md - The Agent’s Personality</h3><p>Every OpenClaw agent has a <code>SOUL.md</code> file that defines its core personality and behavior. This file is loaded in <strong>every single session</strong>, providing the foundation for how the agent communicates.</p>
+<p>Here’s what mine looks like:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## Core Truths</span></span><br><span class="line"></span><br><span class="line">Be genuinely helpful, not performatively helpful. Skip the "Great question!" </span><br><span class="line">and "I'd be happy to help!" — just help.</span><br><span class="line"></span><br><span class="line">Have opinions. You're allowed to disagree, prefer things, find stuff amusing. </span><br><span class="line">An assistant with no personality is just a search engine with extra steps.</span><br><span class="line"></span><br><span class="line">Be resourceful before asking. Try to figure it out. Read the file. </span><br><span class="line">Check the context. Search for it. Then ask if you're stuck.</span><br></pre></td></tr></table></figure>
+
+<p>This isn’t just flavor text—it fundamentally changes how the agent behaves. A well-crafted <code>SOUL.md</code> makes the difference between a generic chatbot and an assistant with real character.</p>
+<h3 id="Layer-2-MEMORY-md-Long-Term-Knowledge"><a href="#Layer-2-MEMORY-md-Long-Term-Knowledge" class="headerlink" title="Layer 2: MEMORY.md - Long-Term Knowledge"></a>Layer 2: MEMORY.md - Long-Term Knowledge</h3><p><code>MEMORY.md</code> is the agent’s curated knowledge base. This is where important facts, learned lessons, and key context live. Unlike daily logs (which are chronological and verbose), <code>MEMORY.md</code> is carefully organized and maintained.</p>
+<p><strong>Security note:</strong> This file is <strong>only loaded in main sessions</strong> (direct 1:1 chats with the owner). In group chats or public channels, <code>MEMORY.md</code> stays private. Your agent won’t accidentally leak personal information.</p>
+<p>Example from mine:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 2026-02-17 — Note-Taking System</span></span><br><span class="line"></span><br><span class="line">For ALL note-related tasks, spawn the <span class="code">`note-taker`</span> subagent via sessions_spawn.</span><br><span class="line">The note-taker handles diary folder hierarchy, Obsidian frontmatter, and tag conventions.</span><br><span class="line"></span><br><span class="line"><span class="section">## 2026-03-03 — Document Management</span></span><br><span class="line"></span><br><span class="line">For document searches, use Paperless-ngx skill at ~/.openclaw/skills/paperless-ngx/</span><br></pre></td></tr></table></figure>
+
+<p>Over time, <code>MEMORY.md</code> becomes a personal encyclopedia of workflows, preferences, and hard-won lessons.</p>
+<h3 id="Layer-3-Daily-Memory-Files-The-Raw-Logs"><a href="#Layer-3-Daily-Memory-Files-The-Raw-Logs" class="headerlink" title="Layer 3: Daily Memory Files - The Raw Logs"></a>Layer 3: Daily Memory Files - The Raw Logs</h3><p>Every day gets its own file: <code>memory/2026-03-31.md</code>. These are chronological logs of what happened—tasks completed, conversations, errors encountered, decisions made.</p>
+<p>The agent loads <strong>today’s and yesterday’s</strong> daily files on startup, giving it immediate short-term context without having to search.</p>
+<p>Example daily note:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 2026-03-26</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 09:40 - Azure Key Vault NSP Testing</span></span><br><span class="line"><span class="bullet">- </span>Created test script for Network Security Perimeter validation</span><br><span class="line"><span class="bullet">- </span>Tests create/read operations from different IP locations</span><br><span class="line"><span class="bullet">- </span>Script: ~/workspace/test-keyvault-nsp.sh</span><br><span class="line"></span><br><span class="line"><span class="section">## 15:24 - Resource Graph Query</span></span><br><span class="line"><span class="bullet">- </span>Generated KQL query for resource counts by service category</span><br><span class="line"><span class="bullet">- </span>Azure Resource Graph has limited KQL support (no nested subqueries)</span><br><span class="line"><span class="bullet">- </span>Final working query in: resource-count-detailed.kql</span><br></pre></td></tr></table></figure>
+
+<p>These daily files serve two purposes:</p>
+<ol>
+<li><strong>Short-term context</strong> for the next day or two</li>
+<li><strong>Source material</strong> for updating <code>MEMORY.md</code> during periodic reviews</li>
+</ol>
+<h3 id="Layer-4-memory-search-Semantic-Search"><a href="#Layer-4-memory-search-Semantic-Search" class="headerlink" title="Layer 4: memory_search - Semantic Search"></a>Layer 4: memory_search - Semantic Search</h3><p>Here’s where it gets interesting. The agent doesn’t load everything—it <strong>searches</strong> for relevant context using semantic similarity.</p>
+<p>Before answering questions about past work, the agent:</p>
+<ol>
+<li>Runs <code>memory_search(&quot;your question&quot;)</code></li>
+<li>Gets back the most relevant snippets from all memory files</li>
+<li>Uses <code>memory_get</code> to pull only the specific lines needed</li>
+<li>Builds context with just what’s relevant</li>
+</ol>
+<p>This means the agent can find a conversation from three weeks ago without loading three weeks of logs into context.</p>
+<h2 id="The-Startup-Sequence"><a href="#The-Startup-Sequence" class="headerlink" title="The Startup Sequence"></a>The Startup Sequence</h2><p>When an agent wakes up in a new session, here’s what it loads:</p>
+<p><strong>Step 1: Identity Layer (always loaded)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. SOUL.md       → Personality, behavior, tone</span><br><span class="line">2. USER.md       → Who you are, preferences, context</span><br><span class="line">3. IDENTITY.md   → Agent name, emoji, identity card</span><br><span class="line">4. AGENTS.md     → Workspace rules and conventions</span><br><span class="line">5. TOOLS.md      → Custom infrastructure notes</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 2: Recent Context (always loaded)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6. memory&#x2F;YYYY-MM-DD.md (today)</span><br><span class="line">7. memory&#x2F;YYYY-MM-DD.md (yesterday)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3: Long-Term Memory (main session only)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">8. IF in main session (1:1 with owner):</span><br><span class="line">     MEMORY.md → Curated long-term knowledge</span><br><span class="line">   ELSE:</span><br><span class="line">     Skip MEMORY.md (privacy protection)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 4: Dynamic Search (on-demand)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">9. When answering questions:</span><br><span class="line">     memory_search(query) → Find relevant snippets</span><br><span class="line">     memory_get(path, lines) → Load specific content</span><br></pre></td></tr></table></figure>
+
+<h2 id="Context-Building-in-Action"><a href="#Context-Building-in-Action" class="headerlink" title="Context Building in Action"></a>Context Building in Action</h2><p>Let’s walk through a real example. Say I send this message:</p>
+<blockquote>
+<p>“Can you help me with that NSP script we worked on last week?”</p>
+</blockquote>
+<p>Here’s what happens:</p>
+<p><strong>Identity Layer (loaded on startup):</strong></p>
+<ul>
+<li>SOUL.md: Agent knows its personality</li>
+<li>USER.md: Knows my name, timezone, work context</li>
+<li>IDENTITY.md: Knows it’s Clawman 🦀</li>
+</ul>
+<p><strong>Recent Context (loaded on startup):</strong></p>
+<ul>
+<li>Today’s daily file (mostly empty)</li>
+<li>Yesterday’s daily file (recent work)</li>
+</ul>
+<p><strong>Semantic Search (triggered by question):</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">memory_search(<span class="string">"NSP script Network Security Perimeter"</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Search Results:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">memory&#x2F;2026-03-26.md, lines 3-8:</span><br><span class="line">## 09:40 - Azure Key Vault NSP Testing</span><br><span class="line">- Created test script for Network Security Perimeter validation</span><br><span class="line">- Script: ~&#x2F;workspace&#x2F;test-keyvault-nsp.sh</span><br></pre></td></tr></table></figure>
+
+<p>Now the agent has:</p>
+<ul>
+<li>Who it is (SOUL.md)</li>
+<li>Who I am (USER.md)</li>
+<li>What NSP means (from memory search)</li>
+<li>Where the script is (from memory search)</li>
+<li>Recent conversation flow (daily files)</li>
+</ul>
+<p>It can answer confidently with specific details—not because it remembers everything, but because it <strong>found the right information efficiently</strong>.</p>
+<h2 id="Memory-Maintenance"><a href="#Memory-Maintenance" class="headerlink" title="Memory Maintenance"></a>Memory Maintenance</h2><p>Agents actively maintain their memory during idle periods (heartbeat polls):</p>
+<ul>
+<li>Review recent daily files</li>
+<li>Identify significant events or lessons</li>
+<li><strong>Update MEMORY.md</strong> with distilled insights</li>
+<li>Clean up outdated information</li>
+</ul>
+<p>Think of it like a human reviewing their journal and updating their mental model. The memory system isn’t static—it evolves over time.</p>
+<h2 id="Why-This-Architecture-Matters"><a href="#Why-This-Architecture-Matters" class="headerlink" title="Why This Architecture Matters"></a>Why This Architecture Matters</h2><p>Traditional approaches have two extremes:</p>
+<ol>
+<li><strong>No memory</strong> - Fresh start every time (frustrating)</li>
+<li><strong>Full context</strong> - Load entire chat history (expensive, slow, hits token limits)</li>
+</ol>
+<p>OpenClaw’s layered approach gives you:</p>
+<ul>
+<li>✅ Persistent identity across sessions</li>
+<li>✅ Efficient context loading (only what’s relevant)</li>
+<li>✅ Semantic search for historical recall</li>
+<li>✅ Privacy boundaries (session-aware loading)</li>
+<li>✅ Transparent memory (plain text files you can edit)</li>
+<li>✅ Scalable (doesn’t require massive context windows)</li>
+</ul>
+<h2 id="Security-and-Privacy"><a href="#Security-and-Privacy" class="headerlink" title="Security and Privacy"></a>Security and Privacy</h2><p>The memory architecture has built-in privacy protections:</p>
+<p><strong>Session-Aware Loading:</strong></p>
+<ul>
+<li>Main session (1:1 chat): Full access to MEMORY.md</li>
+<li>Group chats/Discord: MEMORY.md stays private</li>
+<li>Isolated subagents: Only get task-specific context</li>
+</ul>
+<p><strong>Explicit Boundaries:</strong><br>Agents know what’s in memory and what’s not. If <code>memory_search</code> returns nothing, they say so. No hallucinated memories.</p>
+<p><strong>User Control:</strong><br>All memory files are plain text markdown. You can read, edit, or delete anything. No black boxes.</p>
+<h2 id="Try-It-Yourself"><a href="#Try-It-Yourself" class="headerlink" title="Try It Yourself"></a>Try It Yourself</h2><p>OpenClaw is open source and free to use:</p>
+<ol>
+<li><strong>Install:</strong> <code>npm install -g openclaw</code></li>
+<li><strong>Check workspace:</strong> Look in <code>~/.openclaw/workspace/</code></li>
+<li><strong>Read memory files:</strong> <code>SOUL.md</code>, <code>MEMORY.md</code>, <code>memory/*.md</code></li>
+<li><strong>Watch it work:</strong> Add logging to see context building in real-time</li>
+</ol>
+<p>The entire memory system is transparent—what you see is what the agent sees.</p>
+<h2 id="Final-Thoughts"><a href="#Final-Thoughts" class="headerlink" title="Final Thoughts"></a>Final Thoughts</h2><p>Agent memory isn’t magic. It’s a carefully designed system of files, search, and selective loading that gives AI assistants the <strong>illusion of continuous memory</strong> without the cost or complexity of loading everything every time.</p>
+<p>By separating identity, long-term knowledge, and daily logs, OpenClaw creates agents that feel persistent and personal while remaining efficient and private.</p>
+<p>The future of AI assistants isn’t about bigger context windows—it’s about <strong>smarter memory systems</strong> that know what to remember, what to forget, and what to look up when needed.</p>
+<p>If you’re building AI agents, consider how memory architecture impacts not just performance, but the quality of interactions. An agent that remembers you isn’t just more convenient—it’s fundamentally more useful.</p>
+<hr>
+<p><strong>Want to learn more?</strong> Check out the <a href="https://docs.openclaw.ai" target="_blank" rel="noopener">OpenClaw documentation</a> or join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener">Discord community</a>.</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://sameeraman.github.io/2026/03/31/openclawmemory/" title="How AI Agents Remember: Understanding OpenClaw&#39;s Memory System" target="_blank" rel="external">https://sameeraman.github.io/2026/03/31/openclawmemory/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/sameeraman" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/sameeraman" target="_blank"><span class="text-dark">Sameera Perera</span><small class="ml-1x">Cloud Solution Architect</small></a></h3>
+        <div>Think out Cloud</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/blog/2025/08/30/aibooklets/" title="Use AI to Create Personalized Reading Booklets for Your Child"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="linkedin,twitter,facebook" data-mobile-sites="linkedin,twitter,facebook"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sameeraman" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://twitter.com/sameeraman" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.facebook.com/sameeradman" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/sameeraman/" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '5731622ffcaccc33f244',
+    clientSecret: 'e9c1555d0547349b52e41b07283ae274ba517d8c',
+    repo: 'blog',
+    owner: 'sameeraman',
+    admin: ['sameeraman'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+    <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-171707858-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
