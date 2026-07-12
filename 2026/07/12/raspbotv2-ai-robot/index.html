@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://sameeraman.github.io/2026/07/12/raspbotv2-ai-robot/web-dashboard.png">
 <meta property="og:image" content="https://sameeraman.github.io/2026/07/12/raspbotv2-ai-robot/web-control.png">
 <meta property="article:published_time" content="2026-07-12T22:00:00.000Z">
-<meta property="article:modified_time" content="2026-07-12T14:06:43.802Z">
+<meta property="article:modified_time" content="2026-07-12T23:57:29.191Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Azure OpenAI">
@@ -377,19 +377,19 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Every kid has a remote control car. Push forward, turn left, crash into furniture, recharge. The experience hasn’t changed much in 30 years. When my daughter and I started playing with the Yahboom RaspBot V2, I found myself wondering — what would a modern remote control car look like if it were designed today using AI?</p>
+        <p>Every kid has a remote control car. Push forward, turn left, crash into furniture, recharge. The experience hasn’t changed much in 30 years. When my daughter and I started playing with the Yahboom RaspBot V2, I found myself wondering, what would a modern remote control car look like if it were designed today using AI?</p>
 <p>That question turned into one of the most fun and technically rewarding pet projects I’ve worked on.</p>
 <a id="more"></a>
 
-<p>The answer wasn’t a bigger motor or a better controller. It was giving the car a brain — a team of specialist AI agents, each responsible for a different part of its intelligence — and a personality my daughter could actually talk to.</p>
+<p>The answer wasn’t a bigger motor or a better controller. It was giving the car a brain, a team of specialist AI agents, each responsible for a different part of its intelligence, and a personality my daughter could actually talk to.</p>
 <p>Meet <strong>Ringo</strong>. A robot dog that lives inside a robot car, powered by Microsoft’s Agent Framework, running on an Orange Pi 5 Pro, and very much capable of going on treasure hunts with a five-year-old.</p>
 <p><img src="assembling-with-daughter.jpg" alt="Assembling Ringo with my daughter"></p>
 <hr>
-<h2 id="Why-This-Project"><a href="#Why-This-Project" class="headerlink" title="Why This Project?"></a>Why This Project?</h2><p>I wanted two things from this build. First, something I could genuinely learn from — hands-on experience with the Microsoft Agent Framework, multi-agent orchestration, Azure AI services, and edge hardware. Second, something my daughter could actually engage with and spark her curiosity about technology.</p>
+<h2 id="Why-This-Project"><a href="#Why-This-Project" class="headerlink" title="Why This Project?"></a>Why This Project?</h2><p>I wanted two things from this build. First, something I could genuinely learn from, hands-on experience with the Microsoft Agent Framework, multi-agent orchestration, Azure AI services, and edge hardware. Second, something my daughter could actually engage with and spark her curiosity about technology.</p>
 <p>A robot with a fun dog personality that understands speech, can go find things, and responds back in a playful voice? That ticked both boxes.</p>
 <hr>
-<h2 id="The-Hardware"><a href="#The-Hardware" class="headerlink" title="The Hardware"></a>The Hardware</h2><p><strong>Yahboom RaspBot V2</strong> is the chassis — a four-wheeled mecanum wheel robot car with a camera mount and a solid sensor platform. The mecanum wheels are great: they let the robot strafe sideways and rotate in place, which makes navigation much more flexible.</p>
-<p>Instead of the bundled Raspberry Pi 5, I used an <strong>Orange Pi 5 Pro</strong>. Why? It has a Rockchip RK3588S SoC with an integrated NPU capable of up to 6 TOPS — meaning future local AI inference (object detection, YOLO, OpenCV) is a real possibility without shipping everything to the cloud. It’s a powerful single-board computer, I already had one at home, and it runs Python beautifully.</p>
+<h2 id="The-Hardware"><a href="#The-Hardware" class="headerlink" title="The Hardware"></a>The Hardware</h2><p><strong>Yahboom RaspBot V2</strong> is the chassis, a four-wheeled mecanum wheel robot car with a camera mount and a solid sensor platform. The mecanum wheels are great: they let the robot strafe sideways and rotate in place, which makes navigation much more flexible.</p>
+<p>Instead of the bundled Raspberry Pi 5, I used an <strong>Orange Pi 5 Pro</strong>. Why? It has a Rockchip RK3588S SoC with an integrated NPU capable of up to 6 TOPS, meaning future local AI inference (object detection, YOLO, OpenCV) is a real possibility without shipping everything to the cloud. It’s a powerful single-board computer, I already had one at home, and it runs Python beautifully.</p>
 <p><img src="assembled-robot.jpg" alt="Assembled Ringo robot"></p>
 <p><strong>Product links:</strong></p>
 <ul>
@@ -398,7 +398,7 @@
 </ul>
 <hr>
 <h2 id="The-Goal-Build-Something-a-Five-Year-Old-Can-Naturally-Interact-With"><a href="#The-Goal-Build-Something-a-Five-Year-Old-Can-Naturally-Interact-With" class="headerlink" title="The Goal: Build Something a Five-Year-Old Can Naturally Interact With"></a>The Goal: Build Something a Five-Year-Old Can Naturally Interact With</h2><p>The interaction model I had in mind was simple: my daughter walks up, says “Hey Ringo”, and then starts talking to the robot naturally. She could tell it to find her toy, ask it questions, or just chat. The robot needed to understand what she was saying, figure out what to do, do it, and talk back.</p>
-<p>That’s actually a complex problem when you unpack it. Vision, navigation, memory, planning, speech — these are all distinct concerns. Stuffing them all into one giant AI prompt felt wrong. That’s where multi-agent architecture came in.</p>
+<p>That’s actually a complex problem when you unpack it. Vision, navigation, memory, planning, speech, these are all distinct concerns. Stuffing them all into one giant AI prompt felt wrong. That’s where multi-agent architecture came in.</p>
 <hr>
 <h2 id="Why-Multi-Agent-Architecture"><a href="#Why-Multi-Agent-Architecture" class="headerlink" title="Why Multi-Agent Architecture?"></a>Why Multi-Agent Architecture?</h2><p>Humans don’t think with one giant brain. Different parts of the brain specialise. A doctor examining a patient doesn’t use the same mental mode as when they’re driving home. Specialists are more accurate, more focused, and easier to reason about.</p>
 <p>I applied the same thinking to Ringo. Instead of one AI trying to do everything, I split the intelligence into a team:</p>
@@ -419,67 +419,67 @@
 </tr>
 <tr>
 <td><strong>Vision Agent</strong></td>
-<td>Processes camera images — identifies objects, reads the environment</td>
+<td>Processes camera images, identifies objects, reads the environment</td>
 </tr>
 <tr>
 <td><strong>Navigation Agent</strong></td>
-<td>Decides how to move — rotation, distance, collision avoidance</td>
+<td>Decides how to move, rotation, distance, collision avoidance</td>
 </tr>
 <tr>
 <td><strong>Memory Agent</strong></td>
-<td>Remembers past interactions — preferences, room layouts, conversation history</td>
+<td>Remembers past interactions, preferences, room layouts, conversation history</td>
 </tr>
 </tbody></table>
 <p><img src="agent-architecture-diagram.png" alt="Multi-Agent Architecture Diagram"></p>
 <p>The flow looks like this: voice input → speech recognition → Orchestrator understands the request → Planner breaks it into steps → Vision/Navigation/Memory agents execute their specialties → Robot moves → Speech output responds back.</p>
 <p>When my daughter says “Ringo, find my pink ball”, the Planner creates a hunt plan, the Vision Agent scans for pink objects using the camera, the Navigation Agent moves toward likely spots, and the Memory Agent recalls where pink things have been found before. The whole team works together on a single goal.</p>
 <hr>
-<h2 id="Microsoft-Agent-Framework-—-The-Operating-System-for-My-Agents"><a href="#Microsoft-Agent-Framework-—-The-Operating-System-for-My-Agents" class="headerlink" title="Microsoft Agent Framework — The Operating System for My Agents"></a>Microsoft Agent Framework — The Operating System for My Agents</h2><p>I chose the <strong>Microsoft Agent Framework</strong> as the backbone, and I wrote all the robot code from scratch on top of it.</p>
+<h2 id="Microsoft-Agent-Framework-The-Operating-System-for-My-Agents"><a href="#Microsoft-Agent-Framework-The-Operating-System-for-My-Agents" class="headerlink" title="Microsoft Agent Framework: The Operating System for My Agents"></a>Microsoft Agent Framework: The Operating System for My Agents</h2><p>I chose the <strong>Microsoft Agent Framework</strong> as the backbone, and I wrote all the robot code from scratch on top of it.</p>
 <p>The framework essentially became the operating system for the agents. It handles:</p>
 <ul>
-<li><strong>Agent communication</strong> — agents can call each other via tools</li>
-<li><strong>Tool calling</strong> — structured way for agents to trigger real-world actions</li>
-<li><strong>Memory</strong> — built-in patterns for storing and retrieving context</li>
-<li><strong>Planning</strong> — native support for goal decomposition</li>
-<li><strong>Orchestration</strong> — routing requests between agents cleanly</li>
-<li><strong>Model abstraction</strong> — swap models without rewriting agent logic</li>
+<li><strong>Agent communication</strong>, agents can call each other via tools</li>
+<li><strong>Tool calling</strong>, structured way for agents to trigger real-world actions</li>
+<li><strong>Memory</strong>, built-in patterns for storing and retrieving context</li>
+<li><strong>Planning</strong>, native support for goal decomposition</li>
+<li><strong>Orchestration</strong>, routing requests between agents cleanly</li>
+<li><strong>Model abstraction</strong>, swap models without rewriting agent logic</li>
 </ul>
-<p>That last point matters a lot. Because of model abstraction, I could optimise each agent independently — using a fast, cheap model for things that need speed, and more capable models where reasoning depth matters.</p>
+<p>That last point matters a lot. Because of model abstraction, I could optimise each agent independently, using a fast, cheap model for things that need speed, and more capable models where reasoning depth matters.</p>
 <p>Official docs: <a href="https://learn.microsoft.com/en-us/agent-framework/overview/?pivots=programming-language-python" target="_blank" rel="noopener">Microsoft Agent Framework Overview</a></p>
 <hr>
 <h2 id="Multi-Model-Within-Multi-Agent"><a href="#Multi-Model-Within-Multi-Agent" class="headerlink" title="Multi-Model Within Multi-Agent"></a>Multi-Model Within Multi-Agent</h2><p>One of the most interesting architectural decisions was using different AI models for different agents:</p>
 <ul>
-<li><strong><code>gpt-4o-mini</code></strong> for the Orchestrator, Navigation, and Memory agents — fast and cheap, good enough for coordination</li>
-<li><strong><code>gpt-4o</code></strong> (multimodal) for the Vision Agent — needs to actually understand images</li>
-<li><strong><code>o3</code></strong> for the Planner during treasure hunts — deep spatial reasoning to break down a goal into steps</li>
+<li><strong><code>gpt-4o-mini</code></strong> for the Orchestrator, Navigation, and Memory agents, fast and cheap, good enough for coordination</li>
+<li><strong><code>gpt-4o</code></strong> (multimodal) for the Vision Agent, needs to actually understand images</li>
+<li><strong><code>o3</code></strong> for the Planner during treasure hunts, deep spatial reasoning to break down a goal into steps</li>
 </ul>
 <p>This is a key insight: not every agent needs the smartest model. Over-engineering the model selection wastes money and adds latency. Match the model capability to the task complexity.</p>
 <hr>
-<h2 id="Cloud-vs-Local-AI-—-The-Latency-Trade-off"><a href="#Cloud-vs-Local-AI-—-The-Latency-Trade-off" class="headerlink" title="Cloud vs Local AI — The Latency Trade-off"></a>Cloud vs Local AI — The Latency Trade-off</h2><p>I used cloud AI services throughout this first version, and it introduced a real tension: cloud models are incredibly accurate, but the round-trip latency kills the real-time feel.</p>
+<h2 id="Cloud-vs-Local-AI-The-Latency-Trade-off"><a href="#Cloud-vs-Local-AI-The-Latency-Trade-off" class="headerlink" title="Cloud vs Local AI: The Latency Trade-off"></a>Cloud vs Local AI: The Latency Trade-off</h2><p>I used cloud AI services throughout this first version, and it introduced a real tension: cloud models are incredibly accurate, but the round-trip latency kills the real-time feel.</p>
 <p>Here’s how I broke it down:</p>
 <p><strong>Cloud (Azure OpenAI):</strong></p>
 <ul>
 <li>All LLM reasoning (GPT models for orchestration, planning, conversation)</li>
-<li>Vision analysis — I used <code>gpt-4o</code> to identify objects from camera frames</li>
-<li>Speech recognition and TTS — Azure Speech Service for both directions</li>
+<li>Vision analysis, I used <code>gpt-4o</code> to identify objects from camera frames</li>
+<li>Speech recognition and TTS, Azure Speech Service for both directions</li>
 </ul>
 <p><strong>Local (on-device):</strong></p>
 <ul>
-<li><strong>Wake word detection</strong> — “Hey Ringo”, “Hi Ringo”, “Hello Ringo” — I wrote custom firmware for the AI voice board to trigger locally. No way was I paying for cloud calls just to detect a wake word.</li>
+<li><strong>Wake word detection</strong>, “Hey Ringo”, “Hi Ringo”, “Hello Ringo”, I wrote custom firmware for the AI voice board to trigger locally. No way was I paying for cloud calls just to detect a wake word.</li>
 </ul>
-<p><strong>The honest truth about latency:</strong> It’s laggy. The full cycle — capture image, send to cloud, get response, plan movement, execute — takes noticeably longer than a snappy in-person interaction. My daughter sometimes got impatient waiting for Ringo to respond. It works, but it’s not seamless yet.</p>
+<p><strong>The honest truth about latency:</strong> It’s laggy. The full cycle, capture image, send to cloud, get response, plan movement, execute, takes noticeably longer than a snappy in-person interaction. My daughter sometimes got impatient waiting for Ringo to respond. It works, but it’s not seamless yet.</p>
 <p><strong>Future plan:</strong> Move object detection to the Orange Pi 5 Pro’s NPU using OpenCV/YOLO locally. That would eliminate the biggest latency bottleneck while keeping the language reasoning in the cloud where the frontier models live.</p>
 <hr>
-<h2 id="Interesting-Engineering-Decisions"><a href="#Interesting-Engineering-Decisions" class="headerlink" title="Interesting Engineering Decisions"></a>Interesting Engineering Decisions</h2><h3 id="Cancellable-AI-Sessions"><a href="#Cancellable-AI-Sessions" class="headerlink" title="Cancellable AI Sessions"></a>Cancellable AI Sessions</h3><p>Long-running agent chains (Orchestrator → Planner → Vision → Navigation) block traditional interrupt handling. When you’re dealing with physical hardware, you absolutely need the ability to cancel immediately — you don’t want the robot to keep driving because the AI is mid-thought.</p>
+<h2 id="Interesting-Engineering-Decisions"><a href="#Interesting-Engineering-Decisions" class="headerlink" title="Interesting Engineering Decisions"></a>Interesting Engineering Decisions</h2><h3 id="Cancellable-AI-Sessions"><a href="#Cancellable-AI-Sessions" class="headerlink" title="Cancellable AI Sessions"></a>Cancellable AI Sessions</h3><p>Long-running agent chains (Orchestrator → Planner → Vision → Navigation) block traditional interrupt handling. When you’re dealing with physical hardware, you absolutely need the ability to cancel immediately, you don’t want the robot to keep driving because the AI is mid-thought.</p>
 <p>My fix: wrap the entire session in an <code>asyncio.Task</code> and cancel it from any thread using <code>loop.call_soon_threadsafe(task.cancel)</code>. This let the wake word hardware callback, the web emergency stop button, or a simple Ctrl+C abort the running chain instantly.</p>
 <p>This is something virtual agent developers rarely think about. Physical agents need hard stops.</p>
-<h3 id="Web-Dashboard"><a href="#Web-Dashboard" class="headerlink" title="Web Dashboard"></a>Web Dashboard</h3><p>I built a real-time web dashboard for development and demo mode. This turned out to be invaluable for debugging — instead of physically picking up the robot to check camera angles or poke at wires, I could see everything from my laptop.</p>
-<p><img src="web-dashboard.png" alt="Ringo Dashboard — session control and live agent logs"></p>
-<p>The Dashboard view gives you session management (start/stop a play session with a max time limit), live agent logs streaming in real time, and the big red <strong>Emergency Stop</strong> button. You can also send text messages directly to Ringo without using voice — great for testing agent responses without waking the household up.</p>
-<p><img src="web-control.png" alt="Ringo Control — live camera feed, movement controls, sensors, and LED states"></p>
-<p>The Control view has the live camera feed via WebSocket (1.8 fps — enough to see what Ringo sees), directional motor controls including strafing and rotation, ultrasonic distance sensor readout, obstacle detection status, LED light bar state control, and audio level sliders for Speaker, Mic, and TTS volume.</p>
-<p>The LED states were a nice touch — Idle (dim white), Listen (blue), Think (purple), Speak (yellow), Found! (sparkle) — each state giving a visual cue about what Ringo is doing at any moment. My daughter loved watching the lights change.</p>
-<h3 id="LLM-Output-as-Hardware-Signal"><a href="#LLM-Output-as-Hardware-Signal" class="headerlink" title="LLM Output as Hardware Signal"></a>LLM Output as Hardware Signal</h3><p>Rather than building a separate intent classifier, I used a simple tagging approach: the LLM outputs <code>[BARK]</code> or <code>*wags tail*</code> as lightweight side-channel signals embedded in its response text. The code parses these tags and triggers the corresponding physical actions — sounds, LED patterns, motor movements. Clean, simple, surprisingly effective.</p>
+<h3 id="Web-Dashboard"><a href="#Web-Dashboard" class="headerlink" title="Web Dashboard"></a>Web Dashboard</h3><p>I built a real-time web dashboard for development and demo mode. This turned out to be invaluable for debugging, instead of physically picking up the robot to check camera angles or poke at wires, I could see everything from my laptop.</p>
+<p><img src="web-dashboard.png" alt="Ringo Dashboard, session control and live agent logs"></p>
+<p>The Dashboard view gives you session management (start/stop a play session with a max time limit), live agent logs streaming in real time, and the big red <strong>Emergency Stop</strong> button. You can also send text messages directly to Ringo without using voice, great for testing agent responses without waking the household up.</p>
+<p><img src="web-control.png" alt="Ringo Control, live camera feed, movement controls, sensors, and LED states"></p>
+<p>The Control view has the live camera feed via WebSocket (1.8 fps, enough to see what Ringo sees), directional motor controls including strafing and rotation, ultrasonic distance sensor readout, obstacle detection status, LED light bar state control, and audio level sliders for Speaker, Mic, and TTS volume.</p>
+<p>The LED states were a nice touch, Idle (dim white), Listen (blue), Think (purple), Speak (yellow), Found! (sparkle), each state giving a visual cue about what Ringo is doing at any moment. My daughter loved watching the lights change.</p>
+<h3 id="LLM-Output-as-Hardware-Signal"><a href="#LLM-Output-as-Hardware-Signal" class="headerlink" title="LLM Output as Hardware Signal"></a>LLM Output as Hardware Signal</h3><p>Rather than building a separate intent classifier, I used a simple tagging approach: the LLM outputs <code>[BARK]</code> or <code>*wags tail*</code> as lightweight side-channel signals embedded in its response text. The code parses these tags and triggers the corresponding physical actions, sounds, LED patterns, motor movements. Clean, simple, surprisingly effective.</p>
 <h3 id="Shared-Hardware-Locks"><a href="#Shared-Hardware-Locks" class="headerlink" title="Shared Hardware Locks"></a>Shared Hardware Locks</h3><p>Running a multi-process robot app means multiple things wanting the same hardware. I hit two painful device lock issues:</p>
 <ol>
 <li><p><strong>Audio device (ALSA):</strong> Azure Speech SDK held <code>plughw:3,0</code> open after the first TTS call, blocking subsequent <code>aplay</code> bark sounds. Fix: reset the synthesizer before each bark to release the lock.</p>
@@ -489,11 +489,11 @@
 </ol>
 <hr>
 <h2 id="Challenges-The-Honest-Part"><a href="#Challenges-The-Honest-Part" class="headerlink" title="Challenges (The Honest Part)"></a>Challenges (The Honest Part)</h2><p>This is where I learned the most.</p>
-<p><strong>Latency, latency, latency.</strong> The full cloud round-trip for vision + reasoning + speech is slow. Ringo doesn’t feel like a responsive pet — it feels like a thoughtful one. That’s not always a bad thing, but it’s not what my daughter expected.</p>
-<p><strong>Wake word recognition for kids.</strong> The hardware wake word worked perfectly for me. For my daughter, it was a constant battle. Her pronunciation, her excitement-level voice, background noise from the household — she struggled to trigger it reliably. I could get it working for me, but the real user (a five-year-old) had a hard time. Next version needs proper noise-cancelling hardware with built-in wake word support.</p>
-<p><strong>Robot drifting.</strong> Sometimes a “move forward for 3 seconds” command wouldn’t stop cleanly. The motors would keep running. LLM hallucinations in movement commands are a real thing — the model occasionally outputs malformed instructions. Defensive parsing and timeout-based motor cutoffs were the fix.</p>
-<p><strong>Battery life: 20 minutes.</strong> The Orange Pi 5 Pro is power-hungry. A full charge lasted about 20 minutes under active use. For a treasure hunt session, that’s actually workable — but it’s a hard constraint. Battery optimisation is on the roadmap.</p>
-<p><strong>LLM hallucinating movement.</strong> Occasionally Ringo would decide to do something unexpected — spin around randomly, announce that a stuffed rabbit was a fire truck. My daughter thought this was hilarious. I was less amused.</p>
+<p><strong>Latency, latency, latency.</strong> The full cloud round-trip for vision + reasoning + speech is slow. Ringo doesn’t feel like a responsive pet, it feels like a thoughtful one. That’s not always a bad thing, but it’s not what my daughter expected.</p>
+<p><strong>Wake word recognition for kids.</strong> The hardware wake word worked perfectly for me. For my daughter, it was a constant battle. Her pronunciation, her excitement-level voice, background noise from the household, she struggled to trigger it reliably. I could get it working for me, but the real user (a five-year-old) had a hard time. Next version needs proper noise-cancelling hardware with built-in wake word support.</p>
+<p><strong>Robot drifting.</strong> Sometimes a “move forward for 3 seconds” command wouldn’t stop cleanly. The motors would keep running. LLM hallucinations in movement commands are a real thing, the model occasionally outputs malformed instructions. Defensive parsing and timeout-based motor cutoffs were the fix.</p>
+<p><strong>Battery life: 20 minutes.</strong> The Orange Pi 5 Pro is power-hungry. A full charge lasted about 20 minutes under active use. For a treasure hunt session, that’s actually workable, but it’s a hard constraint. Battery optimisation is on the roadmap.</p>
+<p><strong>LLM hallucinating movement.</strong> Occasionally Ringo would decide to do something unexpected, spin around randomly, announce that a stuffed rabbit was a fire truck. My daughter thought this was hilarious. I was less amused.</p>
 <p><strong>Cloud costs.</strong> Continuous camera polling with multimodal vision models adds up. Switching to local object detection will dramatically cut this.</p>
 <hr>
 <h2 id="The-Part-That-Made-It-Worth-It"><a href="#The-Part-That-Made-It-Worth-It" class="headerlink" title="The Part That Made It Worth It"></a>The Part That Made It Worth It</h2><p>My daughter loved it.</p>
@@ -504,21 +504,21 @@
 <h2 id="Lessons-Learned"><a href="#Lessons-Learned" class="headerlink" title="Lessons Learned"></a>Lessons Learned</h2><p><strong>Start with one agent, split later.</strong> My first version had everything in one orchestrator. I only split into sub-agents once the responsibilities were clearly understood. Premature decomposition adds latency and complexity for no gain. Start monolithic, refactor when you feel the seams.</p>
 <p><strong>More agents = more latency.</strong> Every agent-to-agent call adds a round trip. Understand when a single agent can handle the task and stick to it. Multi-agent shines for genuinely distinct responsibilities, not for artificially splitting one job into five.</p>
 <p><strong>Cloud intelligence + local speed = the right hybrid.</strong> Use cloud frontier models for reasoning and complex decision-making. Move latency-sensitive operations local. The right split depends on your hardware, your use case, and your tolerance for lag.</p>
-<p><strong>Physical agents change the stakes.</strong> When an agent controls something in the real world, errors have physical consequences. Defensive coding, hard timeouts, and immediate cancellation aren’t optional — they’re essential.</p>
+<p><strong>Physical agents change the stakes.</strong> When an agent controls something in the real world, errors have physical consequences. Defensive coding, hard timeouts, and immediate cancellation aren’t optional, they’re essential.</p>
 <p><strong>Hardware quality matters for voice.</strong> Software noise cancellation only goes so far. Proper microphone hardware with built-in noise cancellation and wake word support is worth the investment, especially when the primary user is a kid.</p>
 <p><strong>Give it a personality.</strong> The technical architecture won’t be what people remember. The character will be.</p>
 <hr>
 <h2 id="What’s-Next"><a href="#What’s-Next" class="headerlink" title="What’s Next"></a>What’s Next</h2><ul>
-<li><strong>Local object detection</strong> — Move computer vision to the Orange Pi NPU using YOLO/OpenCV. This is the biggest latency win.</li>
-<li><strong>Multi-room navigation memory</strong> — Store a map of the house. Know which room the robot is in, what’s around it, recall previous sessions.</li>
-<li><strong>Better wake word hardware</strong> — Find a mic module with proper noise cancellation and built-in wake word detection that works for kids.</li>
-<li><strong>Battery optimisation</strong> — Profile the power usage and find ways to extend the 20-minute window.</li>
-<li><strong>More training context</strong> — Give the LLM better grounding for Ringo’s personality so interactions are more consistent.</li>
+<li><strong>Local object detection</strong>, Move computer vision to the Orange Pi NPU using YOLO/OpenCV. This is the biggest latency win.</li>
+<li><strong>Multi-room navigation memory</strong>, Store a map of the house. Know which room the robot is in, what’s around it, recall previous sessions.</li>
+<li><strong>Better wake word hardware</strong>, Find a mic module with proper noise cancellation and built-in wake word detection that works for kids.</li>
+<li><strong>Battery optimisation</strong>, Profile the power usage and find ways to extend the 20-minute window.</li>
+<li><strong>More training context</strong>, Give the LLM better grounding for Ringo’s personality so interactions are more consistent.</li>
 </ul>
 <hr>
 <h2 id="Final-Thoughts"><a href="#Final-Thoughts" class="headerlink" title="Final Thoughts"></a>Final Thoughts</h2><p>This project gave me everything I was looking for. Hands-on experience with the Microsoft Agent Framework. Real-world multi-agent orchestration. The challenge of edge AI on constrained hardware. The satisfaction of watching something physical move because of code you wrote.</p>
 <p>And I got to build it alongside my daughter on a Sunday afternoon, watching her name a robot dog and tell it to find her toys.</p>
-<p>We’re living in a genuinely fascinating moment in technology. The tools to give a physical device real intelligence — language understanding, visual perception, goal-directed planning, memory — are accessible to anyone willing to put in the hours. The barrier to entry for building something like this has never been lower.</p>
+<p>We’re living in a genuinely fascinating moment in technology. The tools to give a physical device real intelligence, language understanding, visual perception, goal-directed planning, memory, are accessible to anyone willing to put in the hours. The barrier to entry for building something like this has never been lower.</p>
 <p>If this project caught your interest, I’d encourage you to get your hands dirty. Pick a cheap robot chassis, a capable single-board computer, and start with one agent. See where it goes. You might end up with a garage project. You might end up with a family member.</p>
 <p>Either way, you’ll learn something.</p>
 <hr>
