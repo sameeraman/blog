@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://sameeraman.github.io/2026/07/12/raspbotv2-ai-robot/web-dashboard.png">
 <meta property="og:image" content="https://sameeraman.github.io/2026/07/12/raspbotv2-ai-robot/web-control.png">
 <meta property="article:published_time" content="2026-07-12T22:00:00.000Z">
-<meta property="article:modified_time" content="2026-07-12T23:57:29.191Z">
+<meta property="article:modified_time" content="2026-07-13T00:04:51.873Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Azure OpenAI">
@@ -470,16 +470,20 @@
 <p><strong>The honest truth about latency:</strong> It’s laggy. The full cycle, capture image, send to cloud, get response, plan movement, execute, takes noticeably longer than a snappy in-person interaction. My daughter sometimes got impatient waiting for Ringo to respond. It works, but it’s not seamless yet.</p>
 <p><strong>Future plan:</strong> Move object detection to the Orange Pi 5 Pro’s NPU using OpenCV/YOLO locally. That would eliminate the biggest latency bottleneck while keeping the language reasoning in the cloud where the frontier models live.</p>
 <hr>
-<h2 id="Interesting-Engineering-Decisions"><a href="#Interesting-Engineering-Decisions" class="headerlink" title="Interesting Engineering Decisions"></a>Interesting Engineering Decisions</h2><h3 id="Cancellable-AI-Sessions"><a href="#Cancellable-AI-Sessions" class="headerlink" title="Cancellable AI Sessions"></a>Cancellable AI Sessions</h3><p>Long-running agent chains (Orchestrator → Planner → Vision → Navigation) block traditional interrupt handling. When you’re dealing with physical hardware, you absolutely need the ability to cancel immediately, you don’t want the robot to keep driving because the AI is mid-thought.</p>
+<h2 id="Interesting-Engineering-Decisions"><a href="#Interesting-Engineering-Decisions" class="headerlink" title="Interesting Engineering Decisions"></a>Interesting Engineering Decisions</h2><hr>
+<h3 id="Cancellable-AI-Sessions"><a href="#Cancellable-AI-Sessions" class="headerlink" title="Cancellable AI Sessions"></a>Cancellable AI Sessions</h3><p>Long-running agent chains (Orchestrator → Planner → Vision → Navigation) block traditional interrupt handling. When you’re dealing with physical hardware, you absolutely need the ability to cancel immediately, you don’t want the robot to keep driving because the AI is mid-thought.</p>
 <p>My fix: wrap the entire session in an <code>asyncio.Task</code> and cancel it from any thread using <code>loop.call_soon_threadsafe(task.cancel)</code>. This let the wake word hardware callback, the web emergency stop button, or a simple Ctrl+C abort the running chain instantly.</p>
 <p>This is something virtual agent developers rarely think about. Physical agents need hard stops.</p>
+<hr>
 <h3 id="Web-Dashboard"><a href="#Web-Dashboard" class="headerlink" title="Web Dashboard"></a>Web Dashboard</h3><p>I built a real-time web dashboard for development and demo mode. This turned out to be invaluable for debugging, instead of physically picking up the robot to check camera angles or poke at wires, I could see everything from my laptop.</p>
 <p><img src="web-dashboard.png" alt="Ringo Dashboard, session control and live agent logs"></p>
 <p>The Dashboard view gives you session management (start/stop a play session with a max time limit), live agent logs streaming in real time, and the big red <strong>Emergency Stop</strong> button. You can also send text messages directly to Ringo without using voice, great for testing agent responses without waking the household up.</p>
 <p><img src="web-control.png" alt="Ringo Control, live camera feed, movement controls, sensors, and LED states"></p>
 <p>The Control view has the live camera feed via WebSocket (1.8 fps, enough to see what Ringo sees), directional motor controls including strafing and rotation, ultrasonic distance sensor readout, obstacle detection status, LED light bar state control, and audio level sliders for Speaker, Mic, and TTS volume.</p>
 <p>The LED states were a nice touch, Idle (dim white), Listen (blue), Think (purple), Speak (yellow), Found! (sparkle), each state giving a visual cue about what Ringo is doing at any moment. My daughter loved watching the lights change.</p>
+<hr>
 <h3 id="LLM-Output-as-Hardware-Signal"><a href="#LLM-Output-as-Hardware-Signal" class="headerlink" title="LLM Output as Hardware Signal"></a>LLM Output as Hardware Signal</h3><p>Rather than building a separate intent classifier, I used a simple tagging approach: the LLM outputs <code>[BARK]</code> or <code>*wags tail*</code> as lightweight side-channel signals embedded in its response text. The code parses these tags and triggers the corresponding physical actions, sounds, LED patterns, motor movements. Clean, simple, surprisingly effective.</p>
+<hr>
 <h3 id="Shared-Hardware-Locks"><a href="#Shared-Hardware-Locks" class="headerlink" title="Shared Hardware Locks"></a>Shared Hardware Locks</h3><p>Running a multi-process robot app means multiple things wanting the same hardware. I hit two painful device lock issues:</p>
 <ol>
 <li><p><strong>Audio device (ALSA):</strong> Azure Speech SDK held <code>plughw:3,0</code> open after the first TTS call, blocking subsequent <code>aplay</code> bark sounds. Fix: reset the synthesizer before each bark to release the lock.</p>
