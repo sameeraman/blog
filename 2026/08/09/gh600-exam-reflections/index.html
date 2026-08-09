@@ -26,12 +26,12 @@
 <meta property="og:description" content="A few weeks ago I sat the GH-600: Agentic AI Developer exam, and I’m glad to say I passed. It’s one of the more interesting Microsoft certification exams I’ve done, and I wanted to share my honest ref">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-08-09T10:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-09T06:32:29.684Z">
+<meta property="article:modified_time" content="2026-08-09T07:00:42.980Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="AI">
+<meta property="article:tag" content="Certification">
 <meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="GitHub Copilot">
-<meta property="article:tag" content="Certification">
 <meta property="article:tag" content="Agentic AI">
 <meta property="article:tag" content="GitHub Actions">
 <meta property="article:tag" content="GH-600">
@@ -359,10 +359,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2026/08/09/gh600-exam-reflections/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.4k(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.5k(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 8(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 9(minutes)</span>
 	
 
       </div>
@@ -391,7 +391,8 @@
 <li>Then tackle <strong>GH-600</strong></li>
 </ol>
 <p>The exam expects you to combine GitHub Copilot knowledge, Actions/workflow expertise, and agentic system design fluency all at once.</p>
-<h2 id="What-the-Exam-Actually-Tests"><a href="#What-the-Exam-Actually-Tests" class="headerlink" title="What the Exam Actually Tests"></a>What the Exam Actually Tests</h2><h3 id="CI-Workflow-Files-—-A-Lot-of-Them"><a href="#CI-Workflow-Files-—-A-Lot-of-Them" class="headerlink" title="CI Workflow Files — A Lot of Them"></a>CI Workflow Files — A Lot of Them</h3><p>A significant portion of the exam revolves around GitHub Actions workflow YAML. You need to be comfortable reading and writing workflow files, understanding job structure, permissions blocks, and how agents are wired into CI pipelines.</p>
+<h2 id="What-the-Exam-Actually-Tests"><a href="#What-the-Exam-Actually-Tests" class="headerlink" title="What the Exam Actually Tests"></a>What the Exam Actually Tests</h2><p>These are some of the top-of-mind areas I remember being tested on. It’s not an exhaustive list, but these are the themes that stood out most to me.</p>
+<h3 id="CI-Workflow-Files-—-A-Lot-of-Them"><a href="#CI-Workflow-Files-—-A-Lot-of-Them" class="headerlink" title="CI Workflow Files — A Lot of Them"></a>CI Workflow Files — A Lot of Them</h3><p>A significant portion of the exam revolves around GitHub Actions workflow YAML. You need to be comfortable reading and writing workflow files, understanding job structure, permissions blocks, and how agents are wired into CI pipelines.</p>
 <p>There were questions on both <strong>deterministic workflows</strong> (traditional, predictable pipelines) and <strong>agentic/probabilistic workflows</strong> where AI agents are part of the execution. Understanding the distinction and knowing when to use each approach matters.</p>
 <h3 id="Permissions-and-Token-Management"><a href="#Permissions-and-Token-Management" class="headerlink" title="Permissions and Token Management"></a>Permissions and Token Management</h3><p>This was a recurring theme throughout. You need to know:</p>
 <ul>
@@ -414,7 +415,7 @@
 <li>The difference between what an agent <em>can</em> call vs. what it <em>should</em> be allowed to call in a given context</li>
 </ul>
 <p>Getting this right is part of building safe and auditable agentic systems.</p>
-<h2 id="The-Case-Study"><a href="#The-Case-Study" class="headerlink" title="The Case Study"></a>The Case Study</h2><p>The case study had 10 questions built around a single scenario. Read it carefully and completely before attempting any questions. The context you build from the full scenario often contains details that are essential for questions that appear later in the set.</p>
+<h2 id="The-Case-Study"><a href="#The-Case-Study" class="headerlink" title="The Case Study"></a>The Case Study</h2><p>The case study had 10 questions built around a single scenario. Personally, I don’t read the full case study up front, because that takes a lot of time and I think it’s a bit of a waste. My approach is to read each question first, then go back into the case study and find only the relevant sections that help answer it. You’re not expected to absorb every detail before you start, you just need to know where to look. The context is always there when you need it, and this way you spend your time much more efficiently.</p>
 <h2 id="Why-I-Built-Labs-and-Why-Learning-by-Doing-Matters"><a href="#Why-I-Built-Labs-and-Why-Learning-by-Doing-Matters" class="headerlink" title="Why I Built Labs, and Why Learning by Doing Matters"></a>Why I Built Labs, and Why Learning by Doing Matters</h2><p>I spent a lot of time building hands-on labs while preparing for this exam, and I genuinely believe that’s what made the difference. The concepts around agentic AI, CI integration, permissions, and MCP are the kind of things that only truly click when you’ve been through the failure modes yourself.</p>
 <p>Reading that a token needs <code>id-token: write</code> permission for OIDC auth is one thing. Watching your pipeline fail with a 401 because you forgot it, then fixing it, and understanding exactly why it worked after, that’s a completely different level of understanding.</p>
 <p>The exam checked that second level. Not “do you know the term” but “can you reason through what happens when this is misconfigured.”</p>
