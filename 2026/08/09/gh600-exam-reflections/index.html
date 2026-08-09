@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>I Passed the GH-600 Exam — Reflections, Study Tips, and Free Labs to Help You Do the Same | Crazy Cloud Ideas</title>
+  <meta name="description" content="A few weeks ago I sat the GH-600: Foundations of Agentic AI in GitHub beta exam, and I’m glad to say I passed. It’s one of the more interesting Microsoft certification exams I’ve done, and I wanted to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I Passed the GH-600 Exam — Reflections, Study Tips, and Free Labs to Help You Do the Same">
+<meta property="og:url" content="https://sameeraman.github.io/2026/08/09/gh600-exam-reflections/index.html">
+<meta property="og:site_name" content="Crazy Cloud Ideas">
+<meta property="og:description" content="A few weeks ago I sat the GH-600: Foundations of Agentic AI in GitHub beta exam, and I’m glad to say I passed. It’s one of the more interesting Microsoft certification exams I’ve done, and I wanted to">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-08-09T10:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-09T06:17:25.119Z">
+<meta property="article:author" content="Sameera Perera">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Certification">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="GitHub Copilot">
+<meta property="article:tag" content="Agentic AI">
+<meta property="article:tag" content="GitHub Actions">
+<meta property="article:tag" content="GH-600">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://sameeraman.github.io/2026/08/09/gh600-exam-reflections/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Crazy Cloud Ideas" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/sameeraman" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Sameera Perera</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Cloud Solution Architect</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Perth, Australia</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-petprojects">
+          <a href="/blog/petprojects">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Pet Projects</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sameeraman" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://twitter.com/sameeraman" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.facebook.com/sameeradman" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/sameeraman/" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2026/08/">August 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2026/07/">July 2026</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2026/03/">March 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/08/">August 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/06/">June 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/01/">January 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ai/">AI</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/aks/">AKS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/asr/">ASR</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/compute/">Compute</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/containers/">Containers</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/devops/">DevOps</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/governance/">Governance</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/hybrid/">Hybrid</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/networking/">Networking</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ai/" rel="tag">AI</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ai-103/" rel="tag">AI-103</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/aks/" rel="tag">AKS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/asr/" rel="tag">ASR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/agent-memory/" rel="tag">Agent Memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/agentic-ai/" rel="tag">Agentic AI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apps/" rel="tag">Apps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/azcopy/" rel="tag">AzCopy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/azure/" rel="tag">Azure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/azure-ai/" rel="tag">Azure AI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/azure-arc/" rel="tag">Azure Arc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/azure-open-ai/" rel="tag">Azure Open AI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/azure-openai/" rel="tag">Azure OpenAI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bicep/" rel="tag">Bicep</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/certification/" rel="tag">Certification</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/compute/" rel="tag">Compute</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/containers/" rel="tag">Containers</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/copilot/" rel="tag">Copilot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devops/" rel="tag">DevOps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/expressroute/" rel="tag">ExpressRoute</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/files/" rel="tag">Files</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gh-600/" rel="tag">GH-600</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/" rel="tag">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github-actions/" rel="tag">GitHub Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github-copilot/" rel="tag">GitHub Copilot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github-actions/" rel="tag">Github Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/globalreach/" rel="tag">GlobalReach</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/governance/" rel="tag">Governance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/homeassistant/" rel="tag">HomeAssistant</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hybrid/" rel="tag">Hybrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/iot/" rel="tag">IoT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kuberenetes/" rel="tag">Kuberenetes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/llm/" rel="tag">LLM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/microsoft/" rel="tag">Microsoft</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/microsoft-agent-framework/" rel="tag">Microsoft Agent Framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/multi-agent/" rel="tag">Multi-Agent</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/networking/" rel="tag">Networking</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/openclaw/" rel="tag">OpenClaw</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/privatelink/" rel="tag">PrivateLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/prompt-engineering/" rel="tag">Prompt Engineering</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/" rel="tag">Raspberry Pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/resource-bridge/" rel="tag">Resource Bridge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/robotics/" rel="tag">Robotics</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/site-recovery/" rel="tag">Site Recovery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/static-pages/" rel="tag">Static Pages</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/storage/" rel="tag">Storage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ubiquiti/" rel="tag">Ubiquiti</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vwan/" rel="tag">VWAN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/virtual-machines/" rel="tag">Virtual Machines</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/ai/" style="font-size: 14px;">AI</a> <a href="/blog/tags/ai-103/" style="font-size: 13px;">AI-103</a> <a href="/blog/tags/aks/" style="font-size: 13px;">AKS</a> <a href="/blog/tags/asr/" style="font-size: 13px;">ASR</a> <a href="/blog/tags/agent-memory/" style="font-size: 13px;">Agent Memory</a> <a href="/blog/tags/agentic-ai/" style="font-size: 13px;">Agentic AI</a> <a href="/blog/tags/apps/" style="font-size: 13px;">Apps</a> <a href="/blog/tags/azcopy/" style="font-size: 13px;">AzCopy</a> <a href="/blog/tags/azure/" style="font-size: 13px;">Azure</a> <a href="/blog/tags/azure-ai/" style="font-size: 13px;">Azure AI</a> <a href="/blog/tags/azure-arc/" style="font-size: 13px;">Azure Arc</a> <a href="/blog/tags/azure-open-ai/" style="font-size: 13px;">Azure Open AI</a> <a href="/blog/tags/azure-openai/" style="font-size: 13px;">Azure OpenAI</a> <a href="/blog/tags/bicep/" style="font-size: 13px;">Bicep</a> <a href="/blog/tags/certification/" style="font-size: 13.33px;">Certification</a> <a href="/blog/tags/compute/" style="font-size: 13px;">Compute</a> <a href="/blog/tags/containers/" style="font-size: 13px;">Containers</a> <a href="/blog/tags/copilot/" style="font-size: 13px;">Copilot</a> <a href="/blog/tags/devops/" style="font-size: 13px;">DevOps</a> <a href="/blog/tags/docker/" style="font-size: 13px;">Docker</a> <a href="/blog/tags/expressroute/" style="font-size: 13.33px;">ExpressRoute</a> <a href="/blog/tags/files/" style="font-size: 13px;">Files</a> <a href="/blog/tags/gh-600/" style="font-size: 13px;">GH-600</a> <a href="/blog/tags/github/" style="font-size: 13px;">GitHub</a> <a href="/blog/tags/github-actions/" style="font-size: 13px;">GitHub Actions</a> <a href="/blog/tags/github-copilot/" style="font-size: 13px;">GitHub Copilot</a> <a href="/blog/tags/github/" style="font-size: 13px;">Github</a> <a href="/blog/tags/github-actions/" style="font-size: 13px;">Github Actions</a> <a href="/blog/tags/globalreach/" style="font-size: 13px;">GlobalReach</a> <a href="/blog/tags/governance/" style="font-size: 13px;">Governance</a> <a href="/blog/tags/hexo/" style="font-size: 13px;">Hexo</a> <a href="/blog/tags/homeassistant/" style="font-size: 13px;">HomeAssistant</a> <a href="/blog/tags/hybrid/" style="font-size: 13px;">Hybrid</a> <a href="/blog/tags/iot/" style="font-size: 13px;">IoT</a> <a href="/blog/tags/kuberenetes/" style="font-size: 13px;">Kuberenetes</a> <a href="/blog/tags/llm/" style="font-size: 13.33px;">LLM</a> <a href="/blog/tags/microsoft/" style="font-size: 13px;">Microsoft</a> <a href="/blog/tags/microsoft-agent-framework/" style="font-size: 13px;">Microsoft Agent Framework</a> <a href="/blog/tags/multi-agent/" style="font-size: 13px;">Multi-Agent</a> <a href="/blog/tags/networking/" style="font-size: 13.67px;">Networking</a> <a href="/blog/tags/openclaw/" style="font-size: 13px;">OpenClaw</a> <a href="/blog/tags/privatelink/" style="font-size: 13px;">PrivateLink</a> <a href="/blog/tags/prompt-engineering/" style="font-size: 13px;">Prompt Engineering</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 13px;">Raspberry Pi</a> <a href="/blog/tags/resource-bridge/" style="font-size: 13px;">Resource Bridge</a> <a href="/blog/tags/robotics/" style="font-size: 13px;">Robotics</a> <a href="/blog/tags/site-recovery/" style="font-size: 13px;">Site Recovery</a> <a href="/blog/tags/static-pages/" style="font-size: 13px;">Static Pages</a> <a href="/blog/tags/storage/" style="font-size: 13px;">Storage</a> <a href="/blog/tags/ubiquiti/" style="font-size: 13px;">Ubiquiti</a> <a href="/blog/tags/vwan/" style="font-size: 13.33px;">VWAN</a> <a href="/blog/tags/virtual-machines/" style="font-size: 13px;">Virtual Machines</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/ai/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2026/08/09/gh600-exam-reflections/" class="title">I Passed the GH-600 Exam — Reflections, Study Tips, and Free Labs to Help You Do the Same</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-08-09T10:00:00.000Z" itemprop="datePublished">2026-08-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/ai/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2026/07/20/azure-ai103-exam-review/" class="title">I Passed the AI-103 Exam — Here&#39;s What You Need to Know Before You Sit It</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-07-20T09:00:00.000Z" itemprop="datePublished">2026-07-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/ai/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2026/07/12/raspbotv2-ai-robot/" class="title">Building an AI-Powered Robot Car with My Daughter Using Microsoft Agent Framework</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-07-12T22:00:00.000Z" itemprop="datePublished">2026-07-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/ai/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2026/03/31/openclawmemory/" class="title">How AI Agents Remember: Understanding OpenClaw&#39;s Memory System</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2026-03-31T16:45:00.000Z" itemprop="datePublished">2026-03-31</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/blog/categories/ai/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2025/08/30/aibooklets/" class="title">Use AI to Create Personalized Reading Booklets for Your Child</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-08-30T11:00:00.000Z" itemprop="datePublished">2025-08-30</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-gh600-exam-reflections" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      I Passed the GH-600 Exam — Reflections, Study Tips, and Free Labs to Help You Do the Same
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2026/08/09/gh600-exam-reflections/" class="article-date">
+	  <time datetime="2026-08-09T10:00:00.000Z" itemprop="datePublished">2026-08-09</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/blog/categories/ai/">AI</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/blog/tags/ai/" rel="tag">AI</a>, <a class="article-tag-link" href="/blog/tags/agentic-ai/" rel="tag">Agentic AI</a>, <a class="article-tag-link" href="/blog/tags/certification/" rel="tag">Certification</a>, <a class="article-tag-link" href="/blog/tags/gh-600/" rel="tag">GH-600</a>, <a class="article-tag-link" href="/blog/tags/github/" rel="tag">GitHub</a>, <a class="article-tag-link" href="/blog/tags/github-actions/" rel="tag">GitHub Actions</a>, <a class="article-tag-link" href="/blog/tags/github-copilot/" rel="tag">GitHub Copilot</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2026/08/09/gh600-exam-reflections/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.5k(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 9(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>A few weeks ago I sat the <strong>GH-600: Foundations of Agentic AI in GitHub</strong> beta exam, and I’m glad to say I passed. It’s one of the more interesting Microsoft certification exams I’ve done, and I wanted to share my honest reflections, what the exam actually tests, and the labs I built along the way that you can use for free to prepare.</p>
+<a id="more"></a>
+
+<p>I’ve been spending a lot of time recently working with agentic AI systems, both professionally and as a personal interest, so the GH-600 felt like a natural next step. After going through the course material, building my own labs, and sitting the exam, I think there’s a gap in the community around how to prepare well for this one. Hopefully this post helps fill that gap a bit.</p>
+<h2 id="What-the-Exam-Looks-Like"><a href="#What-the-Exam-Looks-Like" class="headerlink" title="What the Exam Looks Like"></a>What the Exam Looks Like</h2><p>Before anything else, the structure:</p>
+<ul>
+<li><strong>Total questions:</strong> 52</li>
+<li><strong>Question types:</strong> Multiple choice, drag and drop, drop-down selections, code fill-in</li>
+<li><strong>Case study:</strong> 1 case study with 10 questions</li>
+<li><strong>Time allowed:</strong> 140 minutes</li>
+<li><strong>Focus:</strong> Heavily practical, implementation-oriented</li>
+</ul>
+<p>The most important thing to understand upfront is that this is <strong>not a theory exam</strong>. Yes, there are conceptual questions, but a large portion of the exam asks you to reason through real implementation scenarios, fill in CI workflow YAML, troubleshoot from log files, and make decisions about permissions, tokens, and agent design patterns. If you go in having only read the theory, you will find it harder than expected.</p>
+<h2 id="Do-Not-Skip-the-Foundational-Exams"><a href="#Do-Not-Skip-the-Foundational-Exams" class="headerlink" title="Do Not Skip the Foundational Exams"></a>Do Not Skip the Foundational Exams</h2><p>This is probably the single most important piece of advice I can give: <strong>do not go straight to GH-600</strong>.</p>
+<p>The exam draws on knowledge from multiple GitHub certification areas. I found that having done GH-300 (GitHub Foundations / Copilot) helped enormously, and I also had prior knowledge from GitHub Enterprise Advanced Security. That background context made a lot of the questions feel familiar and grounded rather than abstract.</p>
+<p>If you’re planning your learning path, I’d suggest:</p>
+<ol>
+<li>Start with <strong>GH-300</strong> (GitHub Copilot)</li>
+<li>Consider <strong>GH-500</strong> and other GitHub certification tracks</li>
+<li>Then tackle <strong>GH-600</strong></li>
+</ol>
+<p>The exam expects you to combine GitHub Copilot knowledge, Actions/workflow expertise, and agentic system design fluency all at once.</p>
+<h2 id="What-the-Exam-Actually-Tests"><a href="#What-the-Exam-Actually-Tests" class="headerlink" title="What the Exam Actually Tests"></a>What the Exam Actually Tests</h2><h3 id="CI-Workflow-Files-—-A-Lot-of-Them"><a href="#CI-Workflow-Files-—-A-Lot-of-Them" class="headerlink" title="CI Workflow Files — A Lot of Them"></a>CI Workflow Files — A Lot of Them</h3><p>A significant portion of the exam revolves around GitHub Actions workflow YAML. You need to be comfortable reading and writing workflow files, understanding job structure, permissions blocks, and how agents are wired into CI pipelines.</p>
+<p>There were questions on both <strong>deterministic workflows</strong> (traditional, predictable pipelines) and <strong>agentic/probabilistic workflows</strong> where AI agents are part of the execution. Understanding the distinction and knowing when to use each approach matters.</p>
+<h3 id="Permissions-and-Token-Management"><a href="#Permissions-and-Token-Management" class="headerlink" title="Permissions and Token Management"></a>Permissions and Token Management</h3><p>This was a recurring theme throughout. You need to know:</p>
+<ul>
+<li>What permissions the <code>GITHUB_TOKEN</code> has by default and how to scope them at workflow and job level</li>
+<li>How to securely pass tokens to agentic steps</li>
+<li>When to use <code>id-token: write</code> for OIDC-based authentication</li>
+<li>How to limit blast radius when agents are operating in a CI context</li>
+</ul>
+<p>A typical permissions block you should be very comfortable with looks something like this:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permissions:</span></span><br><span class="line">  <span class="attr">contents:</span> <span class="string">read</span></span><br><span class="line">  <span class="attr">pull-requests:</span> <span class="string">write</span></span><br><span class="line">  <span class="attr">issues:</span> <span class="string">write</span></span><br><span class="line">  <span class="attr">models:</span> <span class="string">read</span></span><br><span class="line">  <span class="attr">id-token:</span> <span class="string">write</span></span><br></pre></td></tr></table></figure>
+
+<p>Knowing <em>why</em> each permission exists and when you’d add or remove it is more important than memorising the list.</p>
+<h3 id="Hooks-—-Stopping-Agents-from-Doing-the-Wrong-Thing"><a href="#Hooks-—-Stopping-Agents-from-Doing-the-Wrong-Thing" class="headerlink" title="Hooks — Stopping Agents from Doing the Wrong Thing"></a>Hooks — Stopping Agents from Doing the Wrong Thing</h3><p>There were questions around using Git hooks and GitHub-level controls to prevent agents from accidentally executing destructive or unintended commands. If you haven’t looked into how hooks can act as guardrails for agentic workflows, add that to your study list.</p>
+<h3 id="Troubleshooting-—-Logs-Session-History-and-PR-Chats"><a href="#Troubleshooting-—-Logs-Session-History-and-PR-Chats" class="headerlink" title="Troubleshooting — Logs, Session History, and PR Chats"></a>Troubleshooting — Logs, Session History, and PR Chats</h3><p>The exam tests your ability to diagnose agentic workflow failures. That means reading agent logs, session history, and the conversation trail in pull requests and merge request discussions. Being methodical about where to look when something goes wrong is a real skill that the exam checks.</p>
+<h3 id="GitHub-Copilot-Memory"><a href="#GitHub-Copilot-Memory" class="headerlink" title="GitHub Copilot Memory"></a>GitHub Copilot Memory</h3><p>Copilot Memory is a relatively new feature and it made an appearance in the exam. Know what it is, how it works at a conceptual level, and how it affects agent behaviour across sessions.</p>
+<h3 id="MCP-—-Tooling-and-Consistency"><a href="#MCP-—-Tooling-and-Consistency" class="headerlink" title="MCP — Tooling and Consistency"></a>MCP — Tooling and Consistency</h3><p>Managing Model Context Protocol (MCP) servers consistently across local development and cloud/production deployments came up. You should understand:</p>
+<ul>
+<li>How to restrict which MCP tools an agent can call</li>
+<li>Permission levels for tool access</li>
+<li>The difference between what an agent <em>can</em> call vs. what it <em>should</em> be allowed to call in a given context</li>
+</ul>
+<p>Getting this right is part of building safe and auditable agentic systems.</p>
+<h2 id="The-Case-Study"><a href="#The-Case-Study" class="headerlink" title="The Case Study"></a>The Case Study</h2><p>The case study had 10 questions built around a single scenario. Read it carefully and completely before attempting any questions. The context you build from the full scenario often contains details that are essential for questions that appear later in the set.</p>
+<h2 id="Why-I-Built-Labs-and-Why-Learning-by-Doing-Matters"><a href="#Why-I-Built-Labs-and-Why-Learning-by-Doing-Matters" class="headerlink" title="Why I Built Labs, and Why Learning by Doing Matters"></a>Why I Built Labs, and Why Learning by Doing Matters</h2><p>I spent a lot of time building hands-on labs while preparing for this exam, and I genuinely believe that’s what made the difference. The concepts around agentic AI, CI integration, permissions, and MCP are the kind of things that only truly click when you’ve been through the failure modes yourself.</p>
+<p>Reading that a token needs <code>id-token: write</code> permission for OIDC auth is one thing. Watching your pipeline fail with a 401 because you forgot it, then fixing it, and understanding exactly why it worked after, that’s a completely different level of understanding.</p>
+<p>The exam checked that second level. Not “do you know the term” but “can you reason through what happens when this is misconfigured.”</p>
+<p>I built some labs specifically to cover the practical concepts from the GH-600 curriculum, and I’ve made them publicly available so others can use them too.</p>
+<p><strong>Lab Starter Repo</strong> (your working environment):<br><a href="https://github.com/sameeraman/gh-600-lab-starter" target="_blank" rel="noopener">github.com/sameeraman/gh-600-lab-starter</a></p>
+<p>The starter includes a React and Vite frontend, an ASP.NET Core 8 Web API with Entity Framework Core, Bicep templates for Azure provisioning, and configuration for Azure Static Web Apps, App Service, managed identity, and Azure SQL Database.</p>
+<p><strong>Lab Instructions Repo</strong> (the exercises):<br><a href="https://github.com/sameeraman/gh-600-lab-instructions" target="_blank" rel="noopener">github.com/sameeraman/gh-600-lab-instructions</a></p>
+<p>The instructions walk you through building up the CI pipeline incrementally, adding agentic jobs step by step, and working through the kinds of integration challenges you’ll be tested on in the exam. Unit tests and Playwright end-to-end tests are included.</p>
+<p>These labs helped me a lot. I hope they do the same for whoever is preparing next.</p>
+<h2 id="Study-Resources-Worth-Your-Time"><a href="#Study-Resources-Worth-Your-Time" class="headerlink" title="Study Resources Worth Your Time"></a>Study Resources Worth Your Time</h2><p>A few links I found useful during preparation:</p>
+<ul>
+<li>The official Microsoft Learn path for GH-600 is the right starting point</li>
+<li>The GitHub community on Reddit has some useful real experiences from people who’ve sat the beta: <a href="https://www.reddit.com/r/AzureCertification/comments/1tmeyb2/gh600_beta_experience_and_public_study_guide_from/" target="_blank" rel="noopener">r/AzureCertification GH-600 thread</a></li>
+<li>There’s a community study guide on GitHub worth reviewing: <a href="https://github.com/jtur671/gh-600-study-guide" target="_blank" rel="noopener">jtur671/gh-600-study-guide</a></li>
+</ul>
+<h2 id="Key-Takeaways-for-Anyone-Preparing"><a href="#Key-Takeaways-for-Anyone-Preparing" class="headerlink" title="Key Takeaways for Anyone Preparing"></a>Key Takeaways for Anyone Preparing</h2><p><strong>1. Build the foundations first.</strong> GH-300 is not optional groundwork, it’s directly relevant. Prior GitHub security knowledge also carries over.</p>
+<p><strong>2. Hands-on practice beats reading.</strong> The exam tests implementation reasoning, not just recall. Actually build something with GitHub Actions and Copilot agents.</p>
+<p><strong>3. Know your YAML.</strong> Workflow files are everywhere in this exam. Be comfortable reading and writing them, including permissions blocks.</p>
+<p><strong>4. Understand the agent safety patterns.</strong> Hooks, permissions scoping, MCP tool restrictions, and token handling are recurring themes for a reason. These are the guardrails that make agentic systems trustworthy.</p>
+<p><strong>5. Troubleshoot like an engineer.</strong> Practice working through failure scenarios from log output and session history. That skill is explicitly tested.</p>
+<p><strong>6. Budget time for the case study.</strong> With 10 questions in the scenario block, you want to be reading it with enough time left to think carefully.</p>
+<p><strong>7. Copilot Memory and MCP are fair game.</strong> They’re newer features but the exam covers them. Don’t skip them in your prep.</p>
+<h2 id="Final-Thoughts"><a href="#Final-Thoughts" class="headerlink" title="Final Thoughts"></a>Final Thoughts</h2><p>The GH-600 is one of the more genuinely relevant certifications I’ve done, because it tests knowledge that actually matters for anyone building or operating agentic AI systems on GitHub today. The concepts around secure CI integration, agent guardrails, permissions, and workflow design are not theoretical, they’re the real patterns you need to get right when you put AI agents in your pipelines.</p>
+<p>If you’re preparing for it, invest the time in hands-on practice. Read the concepts, then go build something that breaks in the ways the concepts warned you about. That’s what makes it stick.</p>
+<p>Good luck with your preparation. The labs are there for you to use, and I hope they make the journey a bit smoother.</p>
+<hr>
+<p><em>Lab repos: <a href="https://github.com/sameeraman/gh-600-lab-starter" target="_blank" rel="noopener">gh-600-lab-starter</a> and <a href="https://github.com/sameeraman/gh-600-lab-instructions" target="_blank" rel="noopener">gh-600-lab-instructions</a></em></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://sameeraman.github.io/2026/08/09/gh600-exam-reflections/" title="I Passed the GH-600 Exam — Reflections, Study Tips, and Free Labs to Help You Do the Same" target="_blank" rel="external">https://sameeraman.github.io/2026/08/09/gh600-exam-reflections/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/sameeraman" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/sameeraman" target="_blank"><span class="text-dark">Sameera Perera</span><small class="ml-1x">Cloud Solution Architect</small></a></h3>
+        <div>Think out Cloud</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div class="giscus"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/blog/2026/07/20/azure-ai103-exam-review/" title="I Passed the AI-103 Exam — Here&#39;s What You Need to Know Before You Sit It"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="linkedin,twitter,facebook" data-mobile-sites="linkedin,twitter,facebook"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/sameeraman" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://twitter.com/sameeraman" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.facebook.com/sameeradman" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/sameeraman/" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="https://giscus.app/client.js"
+        data-repo="sameeraman/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNzc0OTU2NTY="
+        data-category="General"
+        data-category-id="DIC_kwDOEIo_aM4DBFxY"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+
+
+
+
+    <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-171707858-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
