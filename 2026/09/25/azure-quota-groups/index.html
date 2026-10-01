@@ -18,12 +18,12 @@
   
   
   <title>Azure Quota Groups: Move Unused Compute Quota Between Subscriptions | Crazy Cloud Ideas</title>
-  <meta name="description" content="I recently started using Azure Quota Groups, and they solved a problem I had been handling subscription by subscription: moving unused compute quota to where it was actually needed. When an applicatio">
+  <meta name="description" content="I recently used Azure Quota Groups, and it solved a problem I had been handling subscription by subscription: moving unused compute quota to where it was actually needed. When an application moves fro">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure Quota Groups: Move Unused Compute Quota Between Subscriptions">
 <meta property="og:url" content="https://sameeraman.github.io/2026/09/25/azure-quota-groups/index.html">
 <meta property="og:site_name" content="Crazy Cloud Ideas">
-<meta property="og:description" content="I recently started using Azure Quota Groups, and they solved a problem I had been handling subscription by subscription: moving unused compute quota to where it was actually needed. When an applicatio">
+<meta property="og:description" content="I recently used Azure Quota Groups, and it solved a problem I had been handling subscription by subscription: moving unused compute quota to where it was actually needed. When an application moves fro">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sameeraman.github.io/2026/09/25/azure-quota-groups/01-portal-search.png">
 <meta property="og:image" content="https://sameeraman.github.io/2026/09/25/azure-quota-groups/02-quota-groups-navigation.png">
@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://sameeraman.github.io/2026/09/25/azure-quota-groups/15-allocation-confirmation.png">
 <meta property="og:image" content="https://sameeraman.github.io/2026/09/25/azure-quota-groups/16-subscription-allocation-overview.png">
 <meta property="article:published_time" content="2026-09-25T09:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-01T00:36:32.031Z">
+<meta property="article:modified_time" content="2026-10-01T00:58:56.693Z">
 <meta property="article:author" content="Sameera Perera">
 <meta property="article:tag" content="Azure">
 <meta property="article:tag" content="Azure Quotas">
@@ -376,19 +376,19 @@
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.9k(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 12(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 11(minutes)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>I recently started using Azure Quota Groups, and they solved a problem I had been handling subscription by subscription: moving unused compute quota to where it was actually needed. When an application moves from a proof of value to testing and then production, being able to redistribute an existing allowance yourself can save a lot of administrative work.</p>
+        <p>I recently used Azure Quota Groups, and it solved a problem I had been handling subscription by subscription: moving unused compute quota to where it was actually needed. When an application moves from a proof of value to testing and then production, being able to redistribute an existing allowance yourself can save a lot of administrative work.</p>
 <a id="more"></a>
 
 <p>The useful discovery for me was that I did not necessarily need another quota increase request every time the requirement moved to a different subscription. If the subscriptions are eligible and the unused quota is already available, a quota group provides a self-service path to reallocate it.</p>
 <p>There are a few important boundaries, though. This is <strong>quota management</strong>, not a way to reserve hardware, bypass regional restrictions, or let deployments automatically borrow quota from another subscription. Understanding that distinction makes the feature much easier to use correctly.</p>
-<h2 id="The-mental-model-that-helped-me"><a href="#The-mental-model-that-helped-me" class="headerlink" title="The mental model that helped me"></a>The mental model that helped me</h2><p>A quota group is an Azure Resource Manager object created at <strong>management group scope</strong>. It logically groups subscriptions so that you can manage and redistribute supported compute quota across them.</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>A quota group is an Azure Resource Manager object created at <strong>management group scope</strong>. It logically groups subscriptions so that you can manage and redistribute supported compute quota across them.</p>
 <p>The workflow is explicit:</p>
 <ol>
 <li>Return unused quota from a member subscription to the quota group.</li>
@@ -419,9 +419,6 @@
 <p>An administrator with the appropriate permissions may need to handle provider registration and role assignments separately from day-to-day quota operations. The <a href="https://learn.microsoft.com/en-us/rest/api/quota/#registering-the-microsoft-quota-resource-provider" target="_blank" rel="noopener">Quota API documentation</a> describes <code>Microsoft.Quota</code> registration, and the <a href="https://learn.microsoft.com/en-us/troubleshoot/azure/general/region-access-request-process" target="_blank" rel="noopener">region access request process</a> covers restricted-region access.</p>
 <p>One detail worth calling out: <strong>quota-group membership is independent of the management-group hierarchy</strong>. A group can include subscriptions from other management groups, and membership is not automatically synchronised with the parent management group. Choose the hosting scope for access control, then explicitly manage which subscriptions participate.</p>
 <h2 id="Step-1-Create-the-quota-group"><a href="#Step-1-Create-the-quota-group" class="headerlink" title="Step 1: Create the quota group"></a>Step 1: Create the quota group</h2><p>The portal flow is straightforward once those prerequisites are in place.</p>
-<blockquote>
-<p>The screenshots below show the portal workflow with environment-specific names, account information, selected workload details, and numerical values removed using opaque redactions. The numerical example later in the post is fictional, not a reconstruction of these screenshots. Portal wording and layout may change.</p>
-</blockquote>
 <h3 id="Find-Quotas"><a href="#Find-Quotas" class="headerlink" title="Find Quotas"></a>Find Quotas</h3><p>Search for <strong>Quotas</strong> in the Azure portal and open the service.</p>
 <p><img src="01-portal-search.png" alt="Search for the Quotas service in the Azure portal"></p>
 <p><em>1. Open the Quotas service from the portal search.</em></p>
@@ -429,49 +426,49 @@
 <p><img src="02-quota-groups-navigation.png" alt="Quota groups navigation under Settings"></p>
 <p><em>2. The Quota groups entry sits alongside My quotas.</em></p>
 <h3 id="Choose-the-management-group-scope"><a href="#Choose-the-management-group-scope" class="headerlink" title="Choose the management-group scope"></a>Choose the management-group scope</h3><p>Use the management-group selector to find the scope you want to work with, then select <strong>Create</strong>.</p>
-<p><img src="03-management-group-scope.png" alt="Quota groups list with the management-group selection redacted"></p>
+<p><img src="03-management-group-scope.png" alt="Quota groups list and management-group selection"></p>
 <p><em>3. Select the appropriate management-group scope before creating the group.</em></p>
 <p>On <strong>Basics</strong>, enter your chosen quota-group name and confirm the management group. The <strong>Change management group</strong> link lets you adjust the selection.</p>
-<p><img src="04-create-group-basics.png" alt="Create quota group Basics form with hierarchy values redacted"></p>
+<p><img src="04-create-group-basics.png" alt="Create quota group Basics form"></p>
 <p><em>4. Confirm the hosting management group and enter a name.</em></p>
 <h3 id="Add-participating-subscriptions"><a href="#Add-participating-subscriptions" class="headerlink" title="Add participating subscriptions"></a>Add participating subscriptions</h3><p>On <strong>Subscription selection</strong>, select the subscriptions that need to participate. If an entry is unavailable, check its eligibility, existing quota-group membership, provider registration, and your permissions rather than assuming the portal is broken.</p>
-<p><img src="05-select-subscriptions.png" alt="Subscription selection with search text and subscription names redacted"></p>
+<p><img src="05-select-subscriptions.png" alt="Select participating subscriptions"></p>
 <p><em>5. Explicitly select the subscriptions to include.</em></p>
 <p>Review the configuration on <strong>Review + create</strong>, then create the group.</p>
-<p><img src="06-review-create.png" alt="Review and create screen with all environment names redacted"></p>
+<p><img src="06-review-create.png" alt="Review and create the quota group"></p>
 <p><em>6. Review the selected scope and membership before creating the group.</em></p>
 <p>The new group appears in the quota-groups list. Open it to work with the relevant quotas.</p>
-<p><img src="07-created-group.png" alt="Created quota group in the list with identifying values redacted"></p>
+<p><img src="07-created-group.png" alt="Newly created quota group in the list"></p>
 <p><em>7. Open the newly created group. Membership alone does not populate its available quota.</em></p>
 <h2 id="Step-2-Return-unused-quota-from-the-source-subscription"><a href="#Step-2-Return-unused-quota-from-the-source-subscription" class="headerlink" title="Step 2: Return unused quota from the source subscription"></a>Step 2: Return unused quota from the source subscription</h2><p>Open the group, select the required <strong>region</strong>, and find the relevant <strong>VM-family quota</strong>. Check this combination carefully: you are not moving a region-independent or family-independent allowance.</p>
-<p><img src="08-select-region-family.png" alt="Region and VM-family quota selection with workload-specific values redacted"></p>
+<p><img src="08-select-region-family.png" alt="Select the region and VM-family quota"></p>
 <p><em>8. Select the region and VM-family quota you want to manage.</em></p>
 <p>Open that family quota to see the participating subscriptions. Select the source subscription, then choose <strong>Manage subscription quota → Return quota to family limit</strong>.</p>
 <p>The naming took a moment to click for me. Here, returning quota means reducing the source subscription’s allowance and making that unused amount available at group level for the selected family and region. It does not move virtual machines or their data.</p>
 <p><img src="09-return-quota-action.png" alt="Return quota to family limit action in the subscription quota menu"></p>
 <p><em>9. Choose the source subscription and the return-quota action.</em></p>
 <p>In the <strong>Distribute quota</strong> form, confirm that the operation is <strong>Return quota to group quota</strong>. With <strong>Custom value</strong>, enter the amount to return and inspect the resulting subscription limit before continuing to <strong>Review + distribute</strong>.</p>
-<p><img src="10-return-quota-form.png" alt="Return-quota form with source subscription and numerical values redacted"></p>
+<p><img src="10-return-quota-form.png" alt="Return unused quota from the source subscription"></p>
 <p><em>10. Enter the amount to return, then check the resulting source limit.</em></p>
 <p>Only return genuinely unused quota. Keep enough allowance for the source subscription’s current usage and any near-term scaling requirements. Also, do not assume stopping or deallocating a VM releases its quota consumption: Microsoft’s VM quota documentation notes that allocated and deallocated VMs both count.</p>
 <p>After submitting the change, check the notification and refresh the quota view.</p>
-<p><img src="11-return-quota-confirmation.png" alt="Successful quota adjustment notification with subscription details removed"></p>
+<p><img src="11-return-quota-confirmation.png" alt="Successful source subscription quota adjustment notification"></p>
 <p><em>11. The notification confirms that the subscription quota was adjusted.</em></p>
 <p>The <strong>Group quota</strong> tile is the next place to check. Confirm that the amount available to allocate has increased and that the source subscription’s limit has decreased as expected.</p>
-<p><img src="12-group-quota-balance.png" alt="Group quota balance tile after a return operation with values redacted"></p>
+<p><img src="12-group-quota-balance.png" alt="Group quota balance after a return operation"></p>
 <p><em>12. Verify the group balance and the source limit after the operation completes.</em></p>
 <h2 id="Step-3-Allocate-group-quota-to-the-destination-subscription"><a href="#Step-3-Allocate-group-quota-to-the-destination-subscription" class="headerlink" title="Step 3: Allocate group quota to the destination subscription"></a>Step 3: Allocate group quota to the destination subscription</h2><p>Now select the destination subscription in the same region and VM-family view. Choose <strong>Manage subscription quota → Increase subscription quota</strong>.</p>
 <p><img src="13-increase-quota-action.png" alt="Increase subscription quota action for a selected destination"></p>
 <p><em>13. Select the destination and choose the increase-quota action.</em></p>
 <p>In the distribution form, confirm <strong>Increase subscription quota</strong>, enter the amount to allocate, and check the resulting destination limit. Review and submit the operation.</p>
 <p>In this flow you are allocating from the group’s available quota, not requesting new quota from Microsoft. If the group does not have enough available, you need another return of unused quota or an approved group-limit increase first.</p>
-<p><img src="14-allocate-quota-form.png" alt="Allocation form with the destination and quota amounts redacted"></p>
+<p><img src="14-allocate-quota-form.png" alt="Allocate group quota to a destination subscription"></p>
 <p><em>14. Allocate an amount from the available group balance to the destination.</em></p>
 <p>Check the success notification, then refresh the overview.</p>
-<p><img src="15-allocation-confirmation.png" alt="Successful destination quota adjustment notification with details removed"></p>
+<p><img src="15-allocation-confirmation.png" alt="Successful destination quota adjustment notification"></p>
 <p><em>15. Confirm the destination adjustment succeeded.</em></p>
 <p>Finally, verify the new distribution across the member subscriptions. Check the source limit, destination limit, remaining group quota, and the destination’s other applicable deployment limits before starting the workload.</p>
-<p><img src="16-subscription-allocation-overview.png" alt="Subscription allocation overview with names, regions and numerical values removed"></p>
+<p><img src="16-subscription-allocation-overview.png" alt="Quota allocation overview across member subscriptions"></p>
 <p><em>16. Review the allocation across subscriptions after the changes.</em></p>
 <h2 id="A-small-example-with-fictional-numbers"><a href="#A-small-example-with-fictional-numbers" class="headerlink" title="A small example with fictional numbers"></a>A small example with fictional numbers</h2><p>For one supported VM family in one region, imagine the following starting point:</p>
 <table>
